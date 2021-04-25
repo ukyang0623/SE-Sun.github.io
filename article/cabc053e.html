@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>线性回归正则化 | 帅yang的博客</title><meta name="keywords" content="数据科学,机器学习,线性回归,正则化"><meta name="author" content="yang"><meta name="copyright" content="yang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据科学导引学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性回归正则化">
+<meta property="og:url" content="https://www.se-sun.cn/article/cabc053e.html">
+<meta property="og:site_name" content="帅yang的博客">
+<meta property="og:description" content="数据科学导引学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg">
+<meta property="article:published_time" content="2021-04-25T15:31:29.000Z">
+<meta property="article:modified_time" content="2021-04-25T15:34:53.758Z">
+<meta property="article:author" content="yang">
+<meta property="article:tag" content="数据科学">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="线性回归">
+<meta property="article:tag" content="正则化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg"><link rel="shortcut icon" href="/logo.ico"><link rel="canonical" href="https://www.se-sun.cn/article/cabc053e"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-5686714820856144',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"K2QFI4X5DR","apiKey":"1d173c5e486b038b9ecfe14ad405a6cb","indexName":"myBlog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-25 23:34:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/backGround@1.2.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/iconFont@2.7.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/cursorStyle@1.7.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/footer@1.1.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/readMode.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/scrollBar@test.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/我的头像" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120145740.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 小伙伴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">帅yang的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 小伙伴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">线性回归正则化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-25T15:31:29.000Z" title="发表于 2021-04-25 23:31:29">2021-04-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-25T15:34:53.758Z" title="更新于 2021-04-25 23:34:53">2021-04-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AF%BC%E5%BC%95/">数据科学导引</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AF%BC%E5%BC%95/%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/">回归模型</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>如何去找到这个点呢？怎么去找到这个model呢？上文图中每个点都是一个model，我们如何去找一个model，来平衡bias和variance之间的关系，或者是得到一个范化能力比较强的模型？</p>
+<p>这里我们就要使用到线性回归里面正则化的一些方法</p>
+</blockquote>
+<h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><ul>
+<li><p>正则化可以减小线性回归的<strong>过度拟合</strong>和<strong>多重共线性</strong>等问题</p>
+<p>首先，我们希望<strong>多重线性回归的损失函数</strong>尽可能的小，在保证这点的同时，给参数w一定的约束，比如令w2=0.01，那么这项发挥的作用就会比较少（防止过度拟合）</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425201314.png" alt="图1.1 正则化引出"></p>
+<p>有很多的方法去进行类似的约束，其中最常见的一种方法就是去加一个正则化——</p>
+<p>也就是<strong>后面加上一项</strong>，加上一项和w相关的东西</p>
+</li>
+</ul>
+<p>  比如令q=2</p>
+<p>  那么首先要找令<strong>多重线性回归的损失函数</strong>最小的w，而w本身也要满足一定的特点——</p>
+<p>  <img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425201914.png" alt="图1.2 对于q的取值研究"></p>
+<p>  原来的w可以随便取，现在的w收到一定的约束，不能随便取</p>
+<p>  以L2为例，w的取值只能取圆里面的点（本来随便取可以取的很远），这就约束了w，使它不能随意的变化，如果一个w变大的话，剩下的w就要变小，因为要满足加起来的平方和小于一定的值</p>
+<p>  这就是我们说的一种限制，也叫做<strong>正则化</strong></p>
+<p>  正则化是加在系数上面，除了所谓的L1、L2，也有很多其他的一些加法，比如正则化只加在x的某些维度上，比如认为x1和x5之间是有一定的关系的，那就把它们作为一体来加一个正则化，比如x1的系数和x5的系数加起来要小于某个值……</p>
+<p>  这样就可以构造出一些<strong>有结构的正则化的方式</strong>，比如常说的group lasso，就是一种<strong>结构正则化的方法</strong>，这里对结构正则化的内容不做详细介绍</p>
+<p>本文会重点介绍两种正则化的方法——</p>
+<ul>
+<li><p>L2—— q=2：岭回归（Ridge），平方和</p>
+<p>使用L2方法，就叫做岭回归</p>
+</li>
+<li><p>L1—— LASSO，绝对值和</p>
+<p>使用L1方法，就叫做LASSO</p>
+</li>
+</ul>
+<h2 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h2><p>λ和t有关系，是和t有关的函数，λ越大，t越小</p>
+<p>也就是说，λ越大，这个惩罚项的权重越大，代表的圈越小，对于系数的约束越强</p>
+<p>  <img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425205702.png" alt="图2.1 岭回归思路"></p>
+<p>将平方和的这个式子变一下形，如下图——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425205853.png" alt="图2.2 平方和不等式变形式"></p>
+<p>我们实际上是要找一个w，使得这个式子比较小</p>
+<p>其实可以把这个式子加到损失函数中一起去做计算，加上去以后就如下图——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425210404.png" alt="图2.3 岭回归的数学模型变化式"></p>
+<p>要找一些w，使得这一整个式子最小，即前者要小，后者也要小</p>
+<p>接下来可以用与之前同样的手段，对这个式子的w求导数，求完导数后，就如下图——</p>
+<p>它与正常的多元线性回归的区别在于<strong>多了一项</strong>，就是这个很有意思的一项，使得这个方法变得更加的稳定，所以岭回归相对来说是一种比较稳定的方法</p>
+<p>λ是乘在w前面的<strong>一个系数，一个权重，一个向量</strong>，乘上一个对角矩阵，相当于是给了对角矩阵一定的权重</p>
+<p>把这个矩阵加在原来的X上面，我们知道X原来会产生<strong>多重共线性</strong>的原因是原来的行列式接近于0，换句话来说，就是不满秩，那么加上这个矩阵之后就变得满秩了，加的越多就越满秩，所以解就越确定</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425220400.png" alt="图2.4 求导"></p>
+<h2 id="岭迹分析"><a href="#岭迹分析" class="headerlink" title="岭迹分析"></a>岭迹分析</h2><p>我们可以不断变化λ（正则化参数）的值来找到一组比较好的估计参数w</p>
+<p>这个λ就变成了一个<strong>超参数</strong>，也就是不同的λ对应不同的回归模型，我们需要找一个最好的λ，怎么做呢？</p>
+<p>超参数往往需要通过<strong>搜索</strong>的方法来得到，也就是通过不断的尝试</p>
+<p>我们给出不同的超参数λ，可以相应得到一组估计参数w，由此可以画一张表格，w是关于λ的一个函数，当λ趋于不同值时得到了不同的w，如下图——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425222259.png" alt="图3.1 岭迹分析表"></p>
+<p>现在以一个二元的线性回归模型为例，第一行是第一个回归系数w1随着λ变化时值的变化，第二行是第二个回归系数w2随着λ变化时值的变化，由此画一张图，名为<strong>岭迹图</strong>（Ridge的意思就是对角线上像山脊一样的东西，这个对角线实际上是和λ有关系的），如下图——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425223342.png" alt="图3.2 岭迹图"></p>
+<p>λ到0.5以后其实变得比较稳定，因此我们可以选择1，作为λ的选项</p>
+<p>所以岭迹图实际上可以帮助我们来分析λ的选择</p>
+<h2 id="LASSO回归"><a href="#LASSO回归" class="headerlink" title="LASSO回归"></a>LASSO回归</h2><p>是一个非常有意思的方法，在深度学习出来之前有很多人研究LASSO，它与岭回归的主要区别就在于把L2换成了L1，即w的绝对值之和</p>
+<p>这样就得到了若干个好处，最主要的好处就是可以压缩w系数，使w变得<strong>稀疏</strong>，稀疏的意思就是有些w是0</p>
+<p>这是很好的事，因为这样就可以做<strong>特征的选择</strong></p>
+<p>其实本来有很多的特征d，我们很多时候并不知道哪个d是有用的，哪个d是没用的，看上去好像都有用</p>
+<p>那么某个d到底是不是重要的，怎么样通过回归方法来确定究竟哪个比较重要，这时我们就可以使用LASSO</p>
+<p>LASSO可以自动的确定哪个维度是重要的，哪个维度是不重要的</p>
+<p>因为在现实中，影响结果y的因素往往是并没有那么多的，选一小部分就可以了，LASSO可以帮我们做这个选择</p>
+<p>同时，它也是正则化的一个方法，所以也可以有效地约束这个w，可以达到和L2相似的能力，可以防止共线性以及模型过度复杂带来的泛化能力下降等问题</p>
+<p>所以当时有非常多的人去研究LASSO</p>
+<p>而LASSO之前并没有很多人去使用，主要是因为它并没有解析表达式，也就是求解LASSO是比较困难的，它是绝对值，求导比较难求，所以还是平方来的实在，大部分人都用L2</p>
+<p>当有人<strong>找到解法</strong>之后，就有很多人使用LASSO了，常用的解法如下图——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425225006.png" alt="图4.1 LASSO回归"></p>
+<p>这些算法并不会在本文多去做介绍，如果大家有兴趣，可以找一些参考资料</p>
+<p>而且这些算法，在现在这些做回归的库里面，比如R语言，或者Python中的一些包（sklearn等）里面都是集成好了的，所以直接调用一下就可以了</p>
+<h2 id="岭回归与LASSO回归"><a href="#岭回归与LASSO回归" class="headerlink" title="岭回归与LASSO回归"></a>岭回归与LASSO回归</h2><p>我们知道岭回归和LASSO回归最主要的区别就是前者是L2，后者是L1</p>
+<p>由w的平方和，换成了w的绝对值之和</p>
+<p>为什么这么换就能够达到<a href='## LASSO回归'>上文</a>说的“使w变得<strong>稀疏</strong>”的效果呢？下面做一个简单的解释</p>
+<p>如下图——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425231510.png" alt="图5.1 岭回归与LASSO回归"></p>
+<p>我们想知道两个特征中哪一个比较重要，或者选择其中一项，即做一个特征的选择</p>
+<p>w1和w2构成了一个平面，在这个平面中，是可以取到w1和w2的任意组合的</p>
+<p>这其实本质上是一个三维的坐标，但我们把它投到二维平面上，还有一个隐藏的L坐标，就是最小优化目标损失</p>
+<p>目标函数（橙色）即为L</p>
+<p>（w1，w2）——&gt;确定一个模型</p>
+<p>平面上每一个点都是一个模型</p>
+<p>同心圆上的模型，它们的目标函数的值（即损失）是一样的</p>
+<p>我们要解的其实是使目标函数（即损失）最小的那一组w，假设是在中心蓝点处</p>
+<p>我们在训练过程中，如果不对w1和w2的取值做    限制的话，其实是可以想办法取到这个值（中心蓝点）的，这个值就是在训练数据中最小的</p>
+<p>而训练数据中最小并不意味着测试数据中最小，如果要使其最小，我们可以选择一个比较复杂的w的组合，一个比较复杂的模型</p>
+<p>现在加了惩罚项，即惩罚函数（绿色），就对w的取值有了一定的限制</p>
+<p>先看岭回归，假设限制为小于t，那么这时候什么样的值是使损失最小的呢，现在肯定取不到中心蓝点，那么只能取到如图的边缘位置，即惩罚函数与目标函数相切的位置，这个横纵坐标往往都是不等于0的</p>
+<p>再看LASSO，它有一些尖角，都是凸出来的，有<strong>好处</strong>——有很高的概率会被切到，此时w1=0，w2不等于0，其他角类似，这就解释了为什么用了LASSO，用了L1，它的很多系数会变成0</p>
+<p>如果考虑更高的维度，比如有三维、四维，那么LASSO实际上是高维空间里一个有很多尖角的形状，这个形状和同心圆去切，就很容易切出来很多地方是0，就会切到坐标轴上</p>
+<p>这些就是从原理上进行的一个简单的解释</p>
+<h2 id="L1惩罚函数形式"><a href="#L1惩罚函数形式" class="headerlink" title="L1惩罚函数形式"></a>L1惩罚函数形式</h2><p>如下图——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425231928.png" alt="图6.1 L1惩罚函数形式"></p>
+<p>此时这个位置切到了0，这个时候w1=0，那么w1x这一项就被删掉了，就相当于数据列表中d1这一维就被删掉了，相当于没有选中d1，选中的是d2，这就是所说的做模型特征选择的方法，是一种很有意思的方法</p>
+<h2 id="正则化路径分析"><a href="#正则化路径分析" class="headerlink" title="正则化路径分析"></a>正则化路径分析</h2><p>与岭迹图类似，可以加上一个项，通过调整λ，可以使越来越多的变量变得稀疏，λ越大，稀疏的变量越多，圈越小</p>
+<p>如下图——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425233033.png" alt="图7.1 正则化路径分析"></p>
+<p>每一条不同颜色的线就表示不同的维度，可以看到，随着λ的变化，值逐渐变成0</p>
+<p>比如lcp这条蓝线，逐渐缩小到0，直到最后大家都变成0，所以LASSO可以做特征选择</p>
+<p>如果λ取2，相当于位于左边的两个特征都没选中，其他特征都被选中去做回归</p>
+<p>而岭回归我们是没有办法这么做的，因为无论从哪个地方画一条线，所有的线都是有值的，无非是值的大小之分</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.se-sun.cn/article/cabc053e.html">https://www.se-sun.cn/article/cabc053e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.se-sun.cn" target="_blank">帅yang的博客</a>！</span></div></div><div class="tag_share"><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/支付宝收款.JPG" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/支付宝收款.JPG" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/微信收款.JPG" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/微信收款.JPG" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/article/7fda15c2.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">简单线性回归</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/article/7fda15c2.html" title="简单线性回归"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-25</div><div class="title">简单线性回归</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/我的头像" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120145740.gif'" alt="avatar"/><div class="author-info__name">yang</div><div class="author-info__description">后端小白的成长过程记录，打好基础，扎实学习</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SE-Sun"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170642.png" target="_blank" title="点击添加微信好友"><i class="iconfont icon-weixin1x card_icon"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170502.png" target="_blank" title="点击添加QQ好友"><i class="iconfont icon-qq card_icon"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170842.png" target="_blank" title="点击添加支付宝好友"><i class="iconfont icon-alipay1 card_icon"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">21年初重新开博客，咕咕太久了，还是记些东西，大学总得学点什么，不能白过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">正则化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B2%AD%E5%9B%9E%E5%BD%92"><span class="toc-number">2.</span> <span class="toc-text">岭回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B2%AD%E8%BF%B9%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">岭迹分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LASSO%E5%9B%9E%E5%BD%92"><span class="toc-number">4.</span> <span class="toc-text">LASSO回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B2%AD%E5%9B%9E%E5%BD%92%E4%B8%8ELASSO%E5%9B%9E%E5%BD%92"><span class="toc-number">5.</span> <span class="toc-text">岭回归与LASSO回归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L1%E6%83%A9%E7%BD%9A%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">L1惩罚函数形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96%E8%B7%AF%E5%BE%84%E5%88%86%E6%9E%90"><span class="toc-number">7.</span> <span class="toc-text">正则化路径分析</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/cabc053e.html" title="线性回归正则化"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="线性回归正则化"/></a><div class="content"><a class="title" href="/article/cabc053e.html" title="线性回归正则化">线性回归正则化</a><time datetime="2021-04-25T15:31:29.000Z" title="发表于 2021-04-25 23:31:29">2021-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/7fda15c2.html" title="简单线性回归"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="简单线性回归"/></a><div class="content"><a class="title" href="/article/7fda15c2.html" title="简单线性回归">简单线性回归</a><time datetime="2021-04-24T19:36:07.000Z" title="发表于 2021-04-25 03:36:07">2021-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/f654074b.html" title="解决sitemap百度爬虫抓取失败的问题"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210201094545.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决sitemap百度爬虫抓取失败的问题"/></a><div class="content"><a class="title" href="/article/f654074b.html" title="解决sitemap百度爬虫抓取失败的问题">解决sitemap百度爬虫抓取失败的问题</a><time datetime="2021-04-23T16:01:38.000Z" title="发表于 2021-04-24 00:01:38">2021-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/eaf73b37.html" title="考研英语单词（100-200）"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210422162723.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="考研英语单词（100-200）"/></a><div class="content"><a class="title" href="/article/eaf73b37.html" title="考研英语单词（100-200）">考研英语单词（100-200）</a><time datetime="2021-04-23T08:55:40.000Z" title="发表于 2021-04-23 16:55:40">2021-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/9c9fbeb7.html" title="考研英语单词（0-100）"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210422162723.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="考研英语单词（0-100）"/></a><div class="content"><a class="title" href="/article/9c9fbeb7.html" title="考研英语单词（0-100）">考研英语单词（0-100）</a><time datetime="2021-04-20T13:15:33.000Z" title="发表于 2021-04-20 21:15:33">2021-04-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By yang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">CDN BY <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/"><strong>jsDelivr</strong></a> | HOST BY <a target="_blank" rel="noopener" href="https://coding.net/"><strong>Coding</strong></a> && <a target="_blank" rel="noopener" href="https://github.com/"><strong>Github</strong></a><br>这里由衷感谢各位前辈优秀的博客对我的帮助</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'myblog-6gxw3lig18028726',
+      region: 'ap-shanghai'
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'myblog-6gxw3lig18028726',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo@1.0.0/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/exfish@1.1.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/myTools@1.3.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/myJS@1.8.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'SE-Sun/myBlog',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></div></body></html>
