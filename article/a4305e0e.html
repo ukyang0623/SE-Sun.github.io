@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>计算机网络的性能指标（2） | 帅yang的博客</title><meta name="keywords" content="计算机网络"><meta name="author" content="yang"><meta name="copyright" content="yang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在上文中，介绍了四个常用的计算机网络性能指标 本文介绍另外四个性能指标  计算机网络的性能指标（2）时延带宽积从字面意思就可以看出，该性能指标是时延与带宽的乘积 时延又分为发送时延，传播时延，处理时延三部分构成，该性能指标中的究竟是哪一个时延呢？ 答案是传播时延 也就是说，时延带宽积是传播时延与带宽的乘积，如下图所示——  我们可以把传输链路看成是一个管道，其长度为传播时延，横截面积为带宽 则时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络的性能指标（2）">
+<meta property="og:url" content="https://www.se-sun.cn/article/a4305e0e.html">
+<meta property="og:site_name" content="帅yang的博客">
+<meta property="og:description" content="在上文中，介绍了四个常用的计算机网络性能指标 本文介绍另外四个性能指标  计算机网络的性能指标（2）时延带宽积从字面意思就可以看出，该性能指标是时延与带宽的乘积 时延又分为发送时延，传播时延，处理时延三部分构成，该性能指标中的究竟是哪一个时延呢？ 答案是传播时延 也就是说，时延带宽积是传播时延与带宽的乘积，如下图所示——  我们可以把传输链路看成是一个管道，其长度为传播时延，横截面积为带宽 则时">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png">
+<meta property="article:published_time" content="2021-04-30T08:36:10.000Z">
+<meta property="article:modified_time" content="2021-04-30T08:37:05.804Z">
+<meta property="article:author" content="yang">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png"><link rel="shortcut icon" href="/logo.ico"><link rel="canonical" href="https://www.se-sun.cn/article/a4305e0e"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-5686714820856144',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"K2QFI4X5DR","apiKey":"1d173c5e486b038b9ecfe14ad405a6cb","indexName":"myBlog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-30 16:37:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/backGround@1.2.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/iconFont@2.7.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/cursorStyle@1.7.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/footer@1.1.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/readMode.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/scrollBar@test.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/我的头像" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120145740.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 小伙伴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">帅yang的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 小伙伴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络的性能指标（2）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-30T08:36:10.000Z" title="发表于 2021-04-30 16:36:10">2021-04-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-30T08:37:05.804Z" title="更新于 2021-04-30 16:37:05">2021-04-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B0%A2%E5%B8%8C%E4%BB%81/">谢希仁</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B0%A2%E5%B8%8C%E4%BB%81/1-6-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%EF%BC%882%EF%BC%89/">1.6 计算机网络的性能指标（2）</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>在上文中，介绍了四个常用的计算机网络性能指标</p>
+<p>本文介绍另外四个性能指标</p>
+</blockquote>
+<h2 id="计算机网络的性能指标（2）"><a href="#计算机网络的性能指标（2）" class="headerlink" title="计算机网络的性能指标（2）"></a>计算机网络的性能指标（2）</h2><h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><p>从字面意思就可以看出，该性能指标是时延与带宽的乘积</p>
+<p>时延又分为发送时延，传播时延，处理时延三部分构成，该性能指标中的究竟是哪一个时延呢？</p>
+<p>答案是<strong>传播时延</strong></p>
+<p>也就是说，时延带宽积是传播时延与带宽的乘积，如下图所示——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430161104.png" alt="图1.1 时延带宽积"></p>
+<p>我们可以把传输链路看成是一个管道，其长度为传播时延，横截面积为带宽</p>
+<p>则时延带宽积就是该管道的体积，可以想象成管道中充满了比特</p>
+<ul>
+<li>若发送端连续发送数据，则在所发送的第一个比特即将到达终点时，发送端就已经发送了时延带宽积个比特</li>
+<li>链路的时延带宽积又称为“<strong>以比特为单位的链路长度</strong>”</li>
+</ul>
+<h3 id="往返时间"><a href="#往返时间" class="headerlink" title="往返时间"></a>往返时间</h3><p>接下来介绍往返时间这个性能指标</p>
+<ul>
+<li><p>在很多情况下，因特网上的信息不仅仅单方向传输，而是双向交互</p>
+</li>
+<li><p>我们有时很需要知道双向交互一次所需要的时间</p>
+</li>
+<li><p>因此，往返时间<strong>RTT</strong>（Round-Tirp Time）也是一个重要的性能指标</p>
+</li>
+</ul>
+<p>来看下图所示的例子——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://www.se-sun.cn/images/2.gif" alt="图2.2 往返时间gif"></p>
+<p>以太网上的某台主机要与无线局域网中的某台主机进行信息交互</p>
+<p>往返时间RTT是指，从源主机发送分组开始，直到源主机收到来自目的主机的确认分组为止所需要的时间</p>
+<p>大家可以根据上文介绍的有关时延的知识来<strong>分析一下</strong>，分组是在这个以太网上耗时较多，还是在这个无线局域网上耗时较多，又或者是在卫星链路上耗时较多呢？</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430161935.png" alt="图2.2 耗时计算"></p>
+<p><strong>答案是：</strong>卫星链路耗时较多</p>
+<p>一般情况下，卫星链路的距离比较远，所带来的传播时延比较大</p>
+<p>例如，地球同步卫星距离地球36000公里，那么可以计算出通过同步卫星转发分组所带来的传播时延大约为240ms</p>
+<h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><p>接下来介绍利用率这个性能指标</p>
+<p>利用率包括两种：</p>
+<ul>
+<li>信道利用率：用来表示某信道有百分之几的时间是被利用的（有数据通过）</li>
+<li>网络利用率：全网络的信道利用率的加权平均</li>
+</ul>
+<p>根据排队论，当某信道的利用率增大时，该信道引起的时延也会迅速增加。</p>
+<p>因此，<strong>信道利用率并非越高越好</strong>。</p>
+<p>如果使用D0表示网络空闲时的时延，D表示网络当前的时延，那么在适当的假定条件下，可以用下面的简单公式来表示D、D0和利用率U之间的关系——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430162619.png" alt="图3.1 利用率"></p>
+<p>我们可以按该式画出时延D随利用率U的变化曲线</p>
+<p>可以看出，时延D从网络空闲时的时延D0，随利用率U的增加而迅速增长</p>
+<h3 id="丢包率"><a href="#丢包率" class="headerlink" title="丢包率"></a>丢包率</h3><p>最好来介绍丢包率这个性能指标</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430163404.png" alt="图4.1 丢包率"></p>
+<p>分组丢失主要有两种情况：</p>
+<ul>
+<li><p>分组在传输过程中出现<strong>误码</strong>，被结点丢弃</p>
+<p>如下图所示，主机发送的分组在传输过程中出现了误码，当分组进入传输路径中的交换机后，被结点交换机检测出了误码，进而被丢弃</p>
+<p>至于结点交换机是如何检测出分组有误码，会在以后讲到</p>
+</li>
+<li><p>分组到达一台存储队列已满的分组交换机时被丢弃，在通信量较大时就可能造成<strong>网络拥塞</strong></p>
+<p>如图所示，假设路由器R5当前的输入缓冲区已满，此时主机发送的分组到达该路由器，路由器没有存储空间暂存该分组，只能将其丢弃</p>
+<p>需要说明的是，实际上路由器会根据自身的拥塞控制方法，在输入缓存还未满的时候就主动丢弃分组</p>
+</li>
+</ul>
+<p>当网络的丢包率较高时，通常无法使网络应用正常工作</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>将本文所介绍的四个常用的计算机网络性能指标的要点总结如下——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430163510.png" alt="图5.1 要点总结"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.se-sun.cn/article/a4305e0e.html">https://www.se-sun.cn/article/a4305e0e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.se-sun.cn" target="_blank">帅yang的博客</a>！</span></div></div><div class="tag_share"><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/支付宝收款.JPG" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/支付宝收款.JPG" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/微信收款.JPG" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/微信收款.JPG" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/article/b685f1e0.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计算机网络的性能指标（1）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/article/b685f1e0.html" title="计算机网络的性能指标（1）"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-30</div><div class="title">计算机网络的性能指标（1）</div></div></a></div><div><a href="/article/b7f035df.html" title="计算机网络的定义和分类"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-29</div><div class="title">计算机网络的定义和分类</div></div></a></div><div><a href="/article/f98260f7.html" title="三种交换方式"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-29</div><div class="title">三种交换方式</div></div></a></div><div><a href="/article/3ebef11d.html" title="因特网概述"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-29</div><div class="title">因特网概述</div></div></a></div><div><a href="/article/679fc6b3.html" title="计算机网络在信息时代的作用"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-29</div><div class="title">计算机网络在信息时代的作用</div></div></a></div><div><a href="/article/3f9a8896.html" title="计网总笔记（黑皮书版）"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-29</div><div class="title">计网总笔记（黑皮书版）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/我的头像" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120145740.gif'" alt="avatar"/><div class="author-info__name">yang</div><div class="author-info__description">后端小白的成长过程记录，打好基础，扎实学习</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SE-Sun"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170642.png" target="_blank" title="点击添加微信好友"><i class="iconfont icon-weixin1x card_icon"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170502.png" target="_blank" title="点击添加QQ好友"><i class="iconfont icon-qq card_icon"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170842.png" target="_blank" title="点击添加支付宝好友"><i class="iconfont icon-alipay1 card_icon"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">21年初重新开博客，咕咕太久了，还是记些东西，大学总得学点什么，不能白过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87%EF%BC%882%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机网络的性能指标（2）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF"><span class="toc-number">1.1.</span> <span class="toc-text">时延带宽积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%80%E8%BF%94%E6%97%B6%E9%97%B4"><span class="toc-number">1.2.</span> <span class="toc-text">往返时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E7%8E%87"><span class="toc-number">1.3.</span> <span class="toc-text">利用率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A2%E5%8C%85%E7%8E%87"><span class="toc-number">1.4.</span> <span class="toc-text">丢包率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/a4305e0e.html" title="计算机网络的性能指标（2）"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络的性能指标（2）"/></a><div class="content"><a class="title" href="/article/a4305e0e.html" title="计算机网络的性能指标（2）">计算机网络的性能指标（2）</a><time datetime="2021-04-30T08:36:10.000Z" title="发表于 2021-04-30 16:36:10">2021-04-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/b685f1e0.html" title="计算机网络的性能指标（1）"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络的性能指标（1）"/></a><div class="content"><a class="title" href="/article/b685f1e0.html" title="计算机网络的性能指标（1）">计算机网络的性能指标（1）</a><time datetime="2021-04-30T08:02:42.000Z" title="发表于 2021-04-30 16:02:42">2021-04-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/c0f70549.html" title="朴素贝叶斯"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425034459.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="朴素贝叶斯"/></a><div class="content"><a class="title" href="/article/c0f70549.html" title="朴素贝叶斯">朴素贝叶斯</a><time datetime="2021-04-29T15:03:03.000Z" title="发表于 2021-04-29 23:03:03">2021-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/b7f035df.html" title="计算机网络的定义和分类"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络的定义和分类"/></a><div class="content"><a class="title" href="/article/b7f035df.html" title="计算机网络的定义和分类">计算机网络的定义和分类</a><time datetime="2021-04-29T08:52:45.000Z" title="发表于 2021-04-29 16:52:45">2021-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/f98260f7.html" title="三种交换方式"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三种交换方式"/></a><div class="content"><a class="title" href="/article/f98260f7.html" title="三种交换方式">三种交换方式</a><time datetime="2021-04-29T07:35:30.000Z" title="发表于 2021-04-29 15:35:30">2021-04-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By yang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">CDN BY <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/"><strong>jsDelivr</strong></a> | HOST BY <a target="_blank" rel="noopener" href="https://coding.net/"><strong>Coding</strong></a> && <a target="_blank" rel="noopener" href="https://github.com/"><strong>Github</strong></a><br>这里由衷感谢各位前辈优秀的博客对我的帮助</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'myblog-6gxw3lig18028726',
+      region: 'ap-shanghai'
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'myblog-6gxw3lig18028726',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo@1.0.0/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/exfish@1.1.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/myTools@1.3.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/myJS@1.8.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'SE-Sun/myBlog',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></div></body></html>
