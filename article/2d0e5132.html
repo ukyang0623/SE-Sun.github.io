@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2021050304 | 帅yang的博客</title><meta name="keywords" content="计算机网络"><meta name="author" content="yang"><meta name="copyright" content="yang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文介绍物理层下面的传输媒体 请大家注意，传输媒体不属于计算机网络体系结构的任何一层，如果非要将它添加到体系结构中，那只能将其放在物理层之下  物理层下面的传输媒体传输媒体可分为如下图所示的两类——  在导引型传输媒体中，电磁波被导引沿着固体媒体传播 而非导引型传输媒体是指自由空间，可使用的电磁波如上图所示，我们可以利用电磁波在自由空间的传播来传送数据信息 同轴电缆示意图如下图所示——  内导体">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021050304">
+<meta property="og:url" content="https://www.se-sun.cn/article/2d0e5132.html">
+<meta property="og:site_name" content="帅yang的博客">
+<meta property="og:description" content="本文介绍物理层下面的传输媒体 请大家注意，传输媒体不属于计算机网络体系结构的任何一层，如果非要将它添加到体系结构中，那只能将其放在物理层之下  物理层下面的传输媒体传输媒体可分为如下图所示的两类——  在导引型传输媒体中，电磁波被导引沿着固体媒体传播 而非导引型传输媒体是指自由空间，可使用的电磁波如上图所示，我们可以利用电磁波在自由空间的传播来传送数据信息 同轴电缆示意图如下图所示——  内导体">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png">
+<meta property="article:published_time" content="2021-05-03T11:24:43.000Z">
+<meta property="article:modified_time" content="2021-05-03T11:25:27.796Z">
+<meta property="article:author" content="yang">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png"><link rel="shortcut icon" href="/logo.ico"><link rel="canonical" href="https://www.se-sun.cn/article/2d0e5132"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-5686714820856144',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"K2QFI4X5DR","apiKey":"1d173c5e486b038b9ecfe14ad405a6cb","indexName":"myBlog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-03 19:25:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/backGround@1.8.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/iconFont@2.7.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/cursorStyle@1.7.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/footer@1.1.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/readMode.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/css/scrollBar@test.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@latest/butterfly/css/macblack.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/我的头像" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120145740.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">35</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 小伙伴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">帅yang的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 小伙伴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">2021050304</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-03T11:24:43.000Z" title="发表于 2021-05-03 19:24:43">2021-05-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-03T11:25:27.796Z" title="更新于 2021-05-03 19:25:27">2021-05-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B0%A2%E5%B8%8C%E4%BB%81/">谢希仁</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B0%A2%E5%B8%8C%E4%BB%81/2-2-%E7%89%A9%E7%90%86%E5%B1%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93/">2.2 物理层下面的传输媒体</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>本文介绍物理层下面的传输媒体</p>
+<p>请大家注意，传输媒体不属于计算机网络体系结构的任何一层，如果非要将它添加到体系结构中，那只能将其放在物理层之下</p>
+</blockquote>
+<h2 id="物理层下面的传输媒体"><a href="#物理层下面的传输媒体" class="headerlink" title="物理层下面的传输媒体"></a>物理层下面的传输媒体</h2><p>传输媒体可分为如下图所示的两类——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503165704.png" alt="图1.1 传输媒体分类"></p>
+<p>在导引型传输媒体中，电磁波被导引沿着固体媒体传播</p>
+<p>而非导引型传输媒体是指自由空间，可使用的电磁波如上图所示，我们可以利用电磁波在自由空间的传播来传送数据信息</p>
+<h3 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h3><p>示意图如下图所示——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503170223.png" alt="图2.1 同轴电缆"></p>
+<p>内导体是铜质芯线，可以是单股实心线或者是多股绞合线</p>
+<p>屏蔽层全称“网状编织的外导体屏蔽层”</p>
+<p>从横切面可以看出，各层都是共圆心的，也就是同轴心的，这就是同轴电缆名称的由来</p>
+<p>同轴电缆有两类，数字表示阻抗，比如50欧阻抗</p>
+<p>第二类目前主要用于有线电视的入户线</p>
+<h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><p>示意图如下图所示——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503171227.png" alt="图3.1 双绞线"></p>
+<p>双绞线是最古老又最常用的传输媒体</p>
+<p>把两根互相绝缘的铜导线并排放在一起，然后按照一定规则绞合起来就构成了双绞线</p>
+<p>例如图中所示的这根无屏蔽双绞线电缆，包含八根铜导线，每两根绞合成一条双绞线</p>
+<p>屏蔽双绞线电缆比无屏蔽双绞线电缆增加了金属丝编织的屏蔽层，提高了抗电磁干扰的能力，当然，价格也要更贵一些</p>
+<p>上图还展示了常用的绞合线的类别、带宽和典型应用</p>
+<p>目前家庭局域网主流带宽为1Gb/s，选用大品牌质量好的超5类双绞线电缆可以满足</p>
+<p>考虑到未来发展，在经济条件允许的情况下，建议选用6A类双绞线电缆以满足万兆局域网的需求</p>
+<h3 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h3><p>示意图如下图所示——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503171929.png" alt="图4.1 光纤"></p>
+<p>由于光纤非常细，因此必须将它做成很结实的光缆</p>
+<p>一根光缆少则只有一根光纤，多则可包括数十至数百根光纤，再加上加强芯和填充物就可以大大提高机械强度，必要时还可以放入远供电源线，最后加上包带层和外护套，就可以使抗拉强度达到几千克，完全可以满足工程施工的强度要求</p>
+<p>光纤的纤芯非常细，纤芯外面的包层也非常细</p>
+<p>在光纤通信中，常用三个波段的中心分别位于上图所示的几个工作波长</p>
+<p>1公里长的1000对双绞线电缆约重8000公斤，而同样长度但容量大得多的一对两芯光缆仅重100公斤</p>
+<h4 id="光在光纤中传输的基本原理"><a href="#光在光纤中传输的基本原理" class="headerlink" title="光在光纤中传输的基本原理"></a>光在光纤中传输的基本原理</h4><p>示意图如下图所示——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503172107.png" alt="图4.2 光在光纤中传输的基本原理（1）"></p>
+<p>包层就包裹在纤芯外层</p>
+<p>在发送端，可以采用发光二极管或半导体激光器作为光源</p>
+<p>在接收端，可以采用光电二极管或激光检波器检测光脉冲</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503172353.png" alt="图4.3 光在光纤中传输的基本原理（2）"></p>
+<p>该过程反复进行，光也就沿着光纤传输下去</p>
+<p>实际上，只要从纤芯中射到纤芯表面的光线的入射角大于某一个临界角度，就可产生全反射</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503172626.png" alt="图4.4 光在光纤中传输的基本原理（3）"></p>
+<p>因此，可以存在许多条不同角度入射的光线在条光纤中传输，这种光纤称为<strong>多模光纤</strong></p>
+<p>若光纤的直径减小到只有一个光的波长，则光纤就像一根波导那样，它可使光线一直向前传播，而不会产生多次反射，这种光纤称为<strong>单模光纤</strong></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503173032.png" alt="图4.5 光在光纤中传输的基本原理（4）"></p>
+<h3 id="电力线"><a href="#电力线" class="headerlink" title="电力线"></a>电力线</h3><p>示意图如下图所示——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503173642.png" alt="图5.1 电力线"></p>
+<p>这不是什么新技术，早在20世纪20年代初期就出现了</p>
+<p>应用电力线传输信号的实例最早是电力线电话</p>
+<p>目前，如果要构建家庭高性能局域网，采用电力线作为传输媒体是不能满足要求的</p>
+<p>对于装修时没有进行网络布线的家庭，可以采用这种方式</p>
+<p>对于一些采用独立房间进行办公的企业来说，每间办公室的电脑数量不多，而又不希望跨办公室进行布线，也可以采取这种方式</p>
+<p>每个办公室只需根据需求，在电源插座上插入一个或多个电力猫即可</p>
+<h3 id="非导引型传输媒体"><a href="#非导引型传输媒体" class="headerlink" title="非导引型传输媒体"></a>非导引型传输媒体</h3><p>下图是电磁波的频谱——</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503173623.png" alt="图6.1 电磁波的频谱"></p>
+<p>最左端的一段频率范围不用于电信领域</p>
+<p>最右端的一段频率范围的电磁波很难产生和调制，由于频率非常高，波长就非常短，因此穿透障碍物的能力非常弱，更为严重的是，该频段的电磁波对生物是有害的，因此，人们很难利用该频率范围的电磁波进行数据传输</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503174115.png" alt="图6.2 ITU对电磁波频段的划分"></p>
+<p>上图展示了国际电信联盟ITU对电磁波频段的划分</p>
+<p>从极低频到甚低频，也就是从极长波到甚长波，这些频段并不用于电信领域</p>
+<p>从低频到甚高频，也就是从长波到米波，这些频段的电磁波又称为无线电波</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.se-sun.cn/article/2d0e5132.html">https://www.se-sun.cn/article/2d0e5132.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.se-sun.cn" target="_blank">帅yang的博客</a>！</span></div></div><div class="tag_share"><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/支付宝收款.JPG" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/支付宝收款.JPG" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/微信收款.JPG" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/微信收款.JPG" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/article/b36ac491.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">2021050303</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/article/b36ac491.html" title="2021050303"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-03</div><div class="title">2021050303</div></div></a></div><div><a href="/article/2ccc3b05.html" title="2021050204"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-03</div><div class="title">2021050204</div></div></a></div><div><a href="/article/455cee9f.html" title="体系结构相关习题"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-02</div><div class="title">体系结构相关习题</div></div></a></div><div><a href="/article/6c1e3e9.html" title="总结笔记"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-02</div><div class="title">总结笔记</div></div></a></div><div><a href="/article/d91017ba.html" title="第一章 概述 章节小结"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-02</div><div class="title">第一章 概述 章节小结</div></div></a></div><div><a href="/article/22f9f7c1.html" title="计算机网络体系结构（4）"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-02</div><div class="title">计算机网络体系结构（4）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/我的头像" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120145740.gif'" alt="avatar"/><div class="author-info__name">yang</div><div class="author-info__description">后端小白的成长过程记录，打好基础，扎实学习</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">35</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SE-Sun"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170642.png" target="_blank" title="点击添加微信好友"><i class="iconfont icon-weixin1x card_icon"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170502.png" target="_blank" title="点击添加QQ好友"><i class="iconfont icon-qq card_icon"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170842.png" target="_blank" title="点击添加支付宝好友"><i class="iconfont icon-alipay1 card_icon"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">21年初重新开博客，咕咕太久了，还是记些东西，大学总得学点什么，不能白过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">1.</span> <span class="toc-text">物理层下面的传输媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E8%BD%B4%E7%94%B5%E7%BC%86"><span class="toc-number">1.1.</span> <span class="toc-text">同轴电缆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E7%BB%9E%E7%BA%BF"><span class="toc-number">1.2.</span> <span class="toc-text">双绞线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%89%E7%BA%A4"><span class="toc-number">1.3.</span> <span class="toc-text">光纤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E5%9C%A8%E5%85%89%E7%BA%A4%E4%B8%AD%E4%BC%A0%E8%BE%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.1.</span> <span class="toc-text">光在光纤中传输的基本原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%8A%9B%E7%BA%BF"><span class="toc-number">1.4.</span> <span class="toc-text">电力线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%AF%BC%E5%BC%95%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">1.5.</span> <span class="toc-text">非导引型传输媒体</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/2d0e5132.html" title="2021050304"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021050304"/></a><div class="content"><a class="title" href="/article/2d0e5132.html" title="2021050304">2021050304</a><time datetime="2021-05-03T11:24:43.000Z" title="发表于 2021-05-03 19:24:43">2021-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/b36ac491.html" title="2021050303"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021050303"/></a><div class="content"><a class="title" href="/article/b36ac491.html" title="2021050303">2021050303</a><time datetime="2021-05-03T11:23:24.000Z" title="发表于 2021-05-03 19:23:24">2021-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2ccc3b05.html" title="2021050204"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021050204"/></a><div class="content"><a class="title" href="/article/2ccc3b05.html" title="2021050204">2021050204</a><time datetime="2021-05-03T11:21:59.000Z" title="发表于 2021-05-03 19:21:59">2021-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/455cee9f.html" title="体系结构相关习题"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="体系结构相关习题"/></a><div class="content"><a class="title" href="/article/455cee9f.html" title="体系结构相关习题">体系结构相关习题</a><time datetime="2021-05-02T11:41:43.000Z" title="发表于 2021-05-02 19:41:43">2021-05-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/6c1e3e9.html" title="总结笔记"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="总结笔记"/></a><div class="content"><a class="title" href="/article/6c1e3e9.html" title="总结笔记">总结笔记</a><time datetime="2021-05-02T11:39:05.000Z" title="发表于 2021-05-02 19:39:05">2021-05-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By yang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">CDN BY <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/"><strong>jsDelivr</strong></a> | HOST BY <a target="_blank" rel="noopener" href="https://coding.net/"><strong>Coding</strong></a> && <a target="_blank" rel="noopener" href="https://github.com/"><strong>Github</strong></a><br>这里由衷感谢各位前辈优秀的博客对我的帮助</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>(()=>{
+  const $countDom = document.getElementById('twikoo-count')
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'myblog-6gxw3lig18028726',
+      region: 'ap-shanghai'
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'myblog-6gxw3lig18028726',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      $countDom.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const loadTwikoo = (bool = false) => {
+    if (typeof twikoo === 'object') {
+      init()
+      bool && $countDom && setTimeout(getCount,0)
+    } else {
+      getScript('https://cdn.jsdelivr.net/npm/twikoo@1.0.0/dist/twikoo.all.min.js').then(()=> {
+        init()
+        bool && $countDom && setTimeout(getCount,0)
+      })
+    }
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo(true)
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/exfish@1.1.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/myTools@1.3.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SE-Sun/Filerepo/js/myJS@1.8.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>((window.gitter = {}).chat = {}).options = {
+  disableDefaultChat: true,
+};
+document.addEventListener('gitter-sidecar-ready', (e) => {
+  const GitterChat = e.detail.Chat
+  let chat
+
+  function initGitter () {
+    chat = new GitterChat({
+      room: 'SE-Sun/myBlog',
+      activationElement: '#chat_btn'
+    });
+  }
+
+  initGitter()
+
+  if (false) {
+    document.addEventListener('pjax:complete', () => {
+      chat.destroy()
+      initGitter()
+    })
+  }
+
+})</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></div></body></html>
