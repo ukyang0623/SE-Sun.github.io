@@ -147,7 +147,7 @@
 </blockquote>
 <p>事实上，在网络中，这也是不需要的。因为在很多情况下，一些物理链路的通信能力远远大于一路通信所需要的通信能力</p>
 <p>比如，一路光纤的传输能力远远大于一路电话所需要的传输能力。在这种情况下，可以使多路通信共用一路信道，即<strong>共享信道</strong>，这就是多路复用技术。也就是说，实现这种信道共享技术中最典型的就是多路复用技术</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126185917.png" alt="图1-1 多路复用"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126185917.png" alt="图1-1 多路复用"></p>
 <p>如上图所示，左侧的通信通过复用器进行复用以后在共享信道上进行传输，在接收端再通过分用器进行分解，交给相应的用户</p>
 <h4 id="多路复用（Multiplexing）"><a href="#多路复用（Multiplexing）" class="headerlink" title="多路复用（Multiplexing）"></a><font color=red>多路复用（Multiplexing）</font></h4><ul>
 <li><p>基本原理就是把链路/网络（通信/信道）资源（如带宽）划分为“资源片”，值得一提的是，这个划分有很多方法</p>
@@ -177,7 +177,7 @@
 <p>简称码分复用</p>
 </li>
 </ul>
-<h2 id="频分多路复用FDM"><a href="#频分多路复用FDM" class="headerlink" title="频分多路复用FDM"></a>频分多路复用FDM</h2><p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126201015.png" alt="图2-1 FDM"></p>
+<h2 id="频分多路复用FDM"><a href="#频分多路复用FDM" class="headerlink" title="频分多路复用FDM"></a>频分多路复用FDM</h2><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126201015.png" alt="图2-1 FDM"></p>
 <p>将信道资源在频率上进行划分，把它分成一个个频带的子信道，让每路信号只去使用其中的某一个频带的子信道，因为频率相互之间是隔离开的，互不干扰</p>
 <p>FDM技术最具有代表性的就是<strong>有线电视网络</strong>，家里一根通路电缆接到电视机上，电视机可以看到很多频道，这些电视信号就是通过FDM方法进行传输的</p>
 <ul>
@@ -187,34 +187,34 @@
 <li><p>用户在分配到一定的频带后，在通信过程中自始至终都占用这个频带来传输数据</p>
 </li>
 </ul>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126210919.png" alt="图2-2 频分多路复用举例"></p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126211019.png" alt="图2-3 频分多路复用举例"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126210919.png" alt="图2-2 频分多路复用举例"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126211019.png" alt="图2-3 频分多路复用举例"></p>
 <p>举例，如果有4个用户共享一个信道，那么这个信道就可以在频率上划分成4个子频带，将每个用户的信号调制到子频带（信带）上。在信道中进行传输的过程中，因为各个用户所占用的载波频率是相互隔离、互不干扰的，所以可以实现共享信道，这就是频分多路复用。在我们现在的通信网络中实际上也是非常多见的</p>
 <h2 id="时分多路复用TDM"><a href="#时分多路复用TDM" class="headerlink" title="时分多路复用TDM"></a>时分多路复用TDM</h2><ul>
 <li><p><font color=red>时分复用</font>则是将时间划分为一段段等长的<font color=red>时分复用帧</font>（TDM帧），每个用户在每个TDM帧中占用固定序号的时隙</p>
 <p>与频分复用相比，FDM是把信道使用从频率上进行分割，TDM是在使用时间上，即把信道的使用时间划分成一段段等长的时间段（TDM帧），每个帧又划分成若干个小的时隙，每个时隙允许用户发送一定量的数据</p>
 </li>
-<li><p>每个用户所占用的时隙是<img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126221003.png">（其周期就是TDM帧的长度）</p>
+<li><p>每个用户所占用的时隙是<img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126221003.png">（其周期就是TDM帧的长度）</p>
 <p>每个用户在这个时分复用系统中，只占用每个复用帧里的某个时隙，只在对应的时隙来传输数据。即在一个复用帧里面发一部分数据，到下一个复用帧里面再发一部分数据，以此类推。因此这个TDM帧是周期性出现的，每个用户就可以周期性的发送数据，通过这样的方法来复用信道资源</p>
 </li>
 </ul>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126221003.png" alt="图3-1 时分多路复用TDM"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126221003.png" alt="图3-1 时分多路复用TDM"></p>
 <ul>
 <li><p>时分复用的所有用户是在不同的时间占用<font color=red>相同的</font>频带宽度</p>
 <p>时分复用的所有用户在频率上是不分割的，也就是说大家使用的是相同的频率</p>
 </li>
 </ul>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126224616.png" alt="图3-2 时分多路复用举例"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126224616.png" alt="图3-2 时分多路复用举例"></p>
 <p>如上图所示，如果有4个用户，在传输数据的时候大家用的是所有的频带资源，但是时间上是要划分的，每个用户只在对应的时隙里传输自己的数据，周而复始实现信道的复用</p>
 <h2 id="波分多路复用WDM"><a href="#波分多路复用WDM" class="headerlink" title="波分多路复用WDM"></a>波分多路复用WDM</h2><ul>
 <li><p>波分复用就是光的频分复用</p>
 <p>WDM事实上也是一种频分复用，因为在光通信中我们更多的使用光的波长来描述光，所以我们把这类在光通信中的频分复用称为波分复用</p>
 </li>
 </ul>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126225112.png" alt="图4-1 波分复用"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126225112.png" alt="图4-1 波分复用"></p>
 <p>这类复用在现在的光通信系统中是非常多见的，比如某个用户的数据是利用某个波长的光，另外一个用户使用另外一种波长的光，只要这两种波长的光在波长上隔离开来，就可以在一根共享的光纤上进行传输，到了目的地以后再把它们分离开来，这就是所谓的波分复用</p>
 <p>有一些实际的光通信系统，光调制方将每一个用户的数据调制到不同的波长，通过WDM的复用器复用以后在共享的一根光纤链路上进行传输，到了目的地以后再把它们分离开来，如下图所示</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126230346.png" alt="图4-2 光通信系统"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126230346.png" alt="图4-2 光通信系统"></p>
 <h2 id="码分多路复用CDM"><a href="#码分多路复用CDM" class="headerlink" title="码分多路复用CDM"></a>码分多路复用CDM</h2><blockquote>
 <p>CDMA大家可能就耳熟能详了，后面会介绍</p>
 </blockquote>
@@ -243,7 +243,7 @@
 <p>相互正交意味着如下关系</p>
 </li>
 </ul>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127015558.png" alt="图5-1 相互正交的关系"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127015558.png" alt="图5-1 相互正交的关系"></p>
 <p>一个用户序列Si和另一个用户序列Sj进行内积点乘，再除以m码长，只有自己和自己的码片序列进行这样的运算才会得到结果1，如果两个站点或者两个用户不一样的码片序列，那么一定是0；如果一个用户的码片序列Si与另外一个码片序列Sj的反码点积相乘，再除以m码长，那么如果是自己码片序列的反码，得到的结果一定是-1，否则只要不是自己的码片序列的码，那么得到的结果一定也为0</p>
 <blockquote>
 <p>那么这么一个正交关系意味着什么呢？</p>
@@ -253,7 +253,7 @@
 <ul>
 <li>令{di}为原始数据序列（这里假设都是+1-1，实际上都是0101），每个用户都在向信道中发送数据，发送信号；利用码片序列对原始数据进行编码，继而发送，所有用户的数据会相互叠加，叠加结果就意味着信道中传输的是所有用户发出信号叠加的一个向量，则各用户的叠加向量为</li>
 </ul>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127020957.png" alt="图5-2 各用户叠加的向量"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127020957.png" alt="图5-2 各用户叠加的向量"></p>
 <p>最右边意味着在叠加中是某些站点或某些用户的码片序列或者是码片序列反码的叠加结果</p>
 <p>当用户接收信号的时候，实际上收到的是这样一个叠加的向量；如果一个用户想接收另外一个用户的数据，那么就需要<strong>解码</strong>来获取另外一个用户的数据而不受其他用户的数据的影响</p>
 <ul>
@@ -261,15 +261,15 @@
 <p>也就是利用发送数据的码片序列与这个信道中的叠加向量进行内积运算，就可以得到对应的码片序列用户发送的数据</p>
 </li>
 </ul>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127021726.png" alt="图5-3 解码运算"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127021726.png" alt="图5-3 解码运算"></p>
 <p>接收数据一方，如果想接收Si的数据，就要用它的码片序列与这个叠加向量进行以上内积运算；运算的结果如果得到为1，就意味着Si发送了一个比特1；如果结果得到-1，就意味着P里面有一个Si的反码，Si用户发送了一个-1，也就是比特0；如果结果为0，就意味着P里面既没有Si的码片序列，也没有码片序列的反码，即这个时间Si没有发送数据。按照这样的原理，CDM就可以让所有用户共享信道，互不干扰</p>
 <blockquote>
 <p>不在自己的片段为0，是自己的分为原码和反码</p>
 </blockquote>
-<h2 id="码分多路复用编-解码举例"><a href="#码分多路复用编-解码举例" class="headerlink" title="码分多路复用编/解码举例"></a>码分多路复用编/解码举例</h2><p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127022903.png" alt="图6-1 码分多路复用编/解码举例（1）"></p>
+<h2 id="码分多路复用编-解码举例"><a href="#码分多路复用编-解码举例" class="headerlink" title="码分多路复用编/解码举例"></a>码分多路复用编/解码举例</h2><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127022903.png" alt="图6-1 码分多路复用编/解码举例（1）"></p>
 <p>假设发送端使用这样的码片序列来发送数据，如果发送一个比特1，就意味着向信道中发送的是一个码片序列；如果发送一个比特-1，相当于二进制中的0，这个时候向信道中发送的是一个码片序列的反码</p>
 <p>接收端在接收数据的时候，接收到的是这样一些码片序列或者码片序列的反码；如果想接收这个用户的数据，那么就利用这个用户的码片序列去进行这样的运算，运算结果会看到，先得到1，再得到-1，刚好，接收端收到的是1-1，刚好是发送的正确数据</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127024420.png" alt="图6-2 码分多路复用编/解码举例（2）"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127024420.png" alt="图6-2 码分多路复用编/解码举例（2）"></p>
 <p>如果有多个用户向信道中发送数据，如上图所示</p>
 <p>有两个用户，每个用户都向信道中发送数据，发送数据最后的结果一定会叠加在信道中（就是之前的运算）；接下来假如两个用户分别使用这样的两个码序列，刚好在时隙0里，都发送了比特1（大家可以自己验证，可以得出这样两个码序列满足正交关系）；那么这样的结果发送出来以后经过运算，最后得到的是一个叠加的向量P；同样，两个用户分别再发送一个-1和1，也会叠加得到这样的一个向量；信道中这个叠加向量经过信道传输被接收端进行正确接收，假如我们这时要接收的是用户1的数据，就应该用用户1的码序列进行解码运算，结果收到的就是1和-1，刚好是用户1发送的数据</p>
 <p>大家可以去验证，如果接收端用某个码序列去接收的话，一定接收到的是对应某个用户的数据 </p>

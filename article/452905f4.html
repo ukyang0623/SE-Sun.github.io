@@ -151,26 +151,26 @@
 <p>首先，下面有一堆的数据，我们已经知道这堆数据的标签了，可以认为这是一堆训练集，KNN不需要训练，但是它还是要有一个训练集的，其中的每一个点，我们都把它存在那里</p>
 <p>当进来一个新的点，我们需要测试它，或者判断它的标签，那么就让它和所有的已有的这些点去计算一个距离，要从中找出与它最近的K个样本</p>
 <p>假设新来的点是α，在如下图所示的红点位置，已知有两类数据，即训练集中一共有两个标签，绿色的代表正类，黄色的代表负类</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427153000.png" alt="图1.1 K近邻基本思想"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427153000.png" alt="图1.1 K近邻基本思想"></p>
 <p>α的6个邻居样本中，有4个正类，2个负类，因此α的标签为正类</p>
 <p>所以它的基本思想很简单，就是根据邻居来判断究竟属于什么标签，即所谓近朱者赤，近墨者黑</p>
 <h2 id="K近邻的算法流程及核心问题"><a href="#K近邻的算法流程及核心问题" class="headerlink" title="K近邻的算法流程及核心问题"></a>K近邻的算法流程及核心问题</h2><p>总的来说，KNN算法可以按照如下图所示流程</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427153614.png" alt="图2.1 KNN算法流程"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427153614.png" alt="图2.1 KNN算法流程"></p>
 <p>k的大小的设置是会影响到预测结果的，比如上文讲的，如果把k改成3，那么α就变成负类了</p>
 <p>当k很小的时候，就意味着只是选了一个最近的邻居，也就是说，标签就是由最近的邻居决定的</p>
 <p>当k无限大的时候，也就是和训练集一样大的时候，那么对于所有样本的预测都是一样的</p>
 <p>前面几篇文章介绍过距离计算的方法，有好多种，我们要选择一种</p>
 <p>很简单，但是需要注意如下图所示的三个核心问题，这几个问题会影响KNN实战的效果</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427154035.png" alt="图2.2 KNN三个核心问题"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427154035.png" alt="图2.2 KNN三个核心问题"></p>
 <p><font color='red'>一般采用交叉验证的方式确定k值</font></p>
 <h2 id="距离"><a href="#距离" class="headerlink" title="距离"></a>距离</h2><p>前面几篇文章有讲过，介绍过如下图所示的几种距离——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427154408.png" alt="图3.1 常用距离"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427154408.png" alt="图3.1 常用距离"></p>
 <p>这里需要注意一下</p>
 <p>余弦距离也就是余弦相似度，和其他几种距离是相反的</p>
 <p>余弦的话，两个点越相似，值就越大，越不相似，值是越小的</p>
 <p>真正的距离的话，两个点越相似，距离是越短的，反之越大</p>
 <h2 id="K值的选择"><a href="#K值的选择" class="headerlink" title="K值的选择"></a>K值的选择</h2><p>正常情况下，当k的取值从1逐渐变到非常大的时候，它的预测的性能是先上升后下降的，所以这时就有<strong>最优k值选择</strong>的问题</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427154820.png" alt="图4.1 K值的选择"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427154820.png" alt="图4.1 K值的选择"></p>
 <p>k比较小的时候，偏差小，方差大</p>
 <p>k比较大的时候，偏差大，方差小</p>
 <h2 id="提高预测性能"><a href="#提高预测性能" class="headerlink" title="提高预测性能"></a>提高预测性能</h2><p>KNN实际上是一种非常慢的算法</p>
@@ -178,7 +178,7 @@
 <p>当测试的数据非常多的时候，复杂度就变为O(n)*O(m)，这两个值都比较大的话，实际上就是平方，这个效率是很难接受的</p>
 <p>那么如何提高效率？</p>
 <p>需要对训练集上的数据根据距离去做一个索引，这里介绍一个KNN算法常用的数据结构和索引方法——k-d树，如下图所示——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427160545.png" alt="图5.1 k-d树"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427160545.png" alt="图5.1 k-d树"></p>
 <p>k-d树是二叉树在多维空间上的一个扩展，因为数据往往是有多个维度的</p>
 <p>假设x是二维的，那么第一个维度是x1，第二个维度是x2，我们可以在x1和x2的维度上把它分成很多小的子空间</p>
 <p>先画一条线，比如说x2等于k1的时候，我们把数据分成了两部分</p>
@@ -187,7 +187,7 @@
 <p>也就是说，我们可以选择一些k，把k记录下来，这些k就像一些规则，可以引导新来的数据点快速落到某一块上，在这一块上样本数量就比较少了，这时候就不需要对整个训练集去做距离计算，只需要计算在这一块里面的所有样本和它的距离，从中选出k个来做k近邻</p>
 <p>那么k-d树的作用就是可以对训练集做一个快速的索引，能够很快的找到相似的样本，同时，k-d树和后面要讲的决策树是有一定关系的</p>
 <h2 id="K近邻小结"><a href="#K近邻小结" class="headerlink" title="K近邻小结"></a>K近邻小结</h2><p>KNN有很多特点，如下图所示——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427161723.png" alt="图6.1 K近邻特点"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427161723.png" alt="图6.1 K近邻特点"></p>
 <p>优点很明显，不需要训练，只需要一些有标注的数据就可以做K近邻了</p>
 <p>异常数据仍然是用它的近邻来表示，每个数据点都可以用它的近邻来表示，所以对异常数据不敏感，具有较好的抗噪性</p>
 <p>缺点在于计算效率不高，因为如果训练数据非常大，或者测试数据非常多的话，那它的效率实际上是非常低的，上文讲过复杂度是O(n^2)</p>

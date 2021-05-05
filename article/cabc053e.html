@@ -149,14 +149,14 @@
 <h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><ul>
 <li><p>正则化可以减小线性回归的<strong>过度拟合</strong>和<strong>多重共线性</strong>等问题</p>
 <p>首先，我们希望<strong>多重线性回归的损失函数</strong>尽可能的小，在保证这点的同时，给参数w一定的约束，比如令w2=0.01，那么这项发挥的作用就会比较少（防止过度拟合）</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425201314.png" alt="图1.1 正则化引出"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425201314.png" alt="图1.1 正则化引出"></p>
 <p>有很多的方法去进行类似的约束，其中最常见的一种方法就是去加一个正则化——</p>
 <p>也就是<strong>后面加上一项</strong>，加上一项和w相关的东西</p>
 </li>
 </ul>
 <p>  比如令q=2</p>
 <p>  那么首先要找令<strong>多重线性回归的损失函数</strong>最小的w，而w本身也要满足一定的特点——</p>
-<p>  <img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425201914.png" alt="图1.2 对于q的取值研究"></p>
+<p>  <img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425201914.png" alt="图1.2 对于q的取值研究"></p>
 <p>  原来的w可以随便取，现在的w收到一定的约束，不能随便取</p>
 <p>  以L2为例，w的取值只能取圆里面的点（本来随便取可以取的很远），这就约束了w，使它不能随意的变化，如果一个w变大的话，剩下的w就要变小，因为要满足加起来的平方和小于一定的值</p>
 <p>  这就是我们说的一种限制，也叫做<strong>正则化</strong></p>
@@ -173,25 +173,25 @@
 </ul>
 <h2 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h2><p>λ和t有关系，是和t有关的函数，λ越大，t越小</p>
 <p>也就是说，λ越大，这个惩罚项的权重越大，代表的圈越小，对于系数的约束越强</p>
-<p>  <img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425205702.png" alt="图2.1 岭回归思路"></p>
+<p>  <img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425205702.png" alt="图2.1 岭回归思路"></p>
 <p>将平方和的这个式子变一下形，如下图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425205853.png" alt="图2.2 平方和不等式变形式"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425205853.png" alt="图2.2 平方和不等式变形式"></p>
 <p>我们实际上是要找一个w，使得这个式子比较小</p>
 <p>其实可以把这个式子加到损失函数中一起去做计算，加上去以后就如下图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425210404.png" alt="图2.3 岭回归的数学模型变化式"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425210404.png" alt="图2.3 岭回归的数学模型变化式"></p>
 <p>要找一些w，使得这一整个式子最小，即前者要小，后者也要小</p>
 <p>接下来可以用与之前同样的手段，对这个式子的w求导数，求完导数后，就如下图——</p>
 <p>它与正常的多元线性回归的区别在于<strong>多了一项</strong>，就是这个很有意思的一项，使得这个方法变得更加的稳定，所以岭回归相对来说是一种比较稳定的方法</p>
 <p>λ是乘在w前面的<strong>一个系数，一个权重，一个向量</strong>，乘上一个对角矩阵，相当于是给了对角矩阵一定的权重</p>
 <p>把这个矩阵加在原来的X上面，我们知道X原来会产生<strong>多重共线性</strong>的原因是原来的行列式接近于0，换句话来说，就是不满秩，那么加上这个矩阵之后就变得满秩了，加的越多就越满秩，所以解就越确定</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425220400.png" alt="图2.4 求导"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425220400.png" alt="图2.4 求导"></p>
 <h2 id="岭迹分析"><a href="#岭迹分析" class="headerlink" title="岭迹分析"></a>岭迹分析</h2><p>我们可以不断变化λ（正则化参数）的值来找到一组比较好的估计参数w</p>
 <p>这个λ就变成了一个<strong>超参数</strong>，也就是不同的λ对应不同的回归模型，我们需要找一个最好的λ，怎么做呢？</p>
 <p>超参数往往需要通过<strong>搜索</strong>的方法来得到，也就是通过不断的尝试</p>
 <p>我们给出不同的超参数λ，可以相应得到一组估计参数w，由此可以画一张表格，w是关于λ的一个函数，当λ趋于不同值时得到了不同的w，如下图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425222259.png" alt="图3.1 岭迹分析表"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425222259.png" alt="图3.1 岭迹分析表"></p>
 <p>现在以一个二元的线性回归模型为例，第一行是第一个回归系数w1随着λ变化时值的变化，第二行是第二个回归系数w2随着λ变化时值的变化，由此画一张图，名为<strong>岭迹图</strong>（Ridge的意思就是对角线上像山脊一样的东西，这个对角线实际上是和λ有关系的），如下图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425223342.png" alt="图3.2 岭迹图"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425223342.png" alt="图3.2 岭迹图"></p>
 <p>λ到0.5以后其实变得比较稳定，因此我们可以选择1，作为λ的选项</p>
 <p>所以岭迹图实际上可以帮助我们来分析λ的选择</p>
 <h2 id="LASSO回归"><a href="#LASSO回归" class="headerlink" title="LASSO回归"></a>LASSO回归</h2><p>是一个非常有意思的方法，在深度学习出来之前有很多人研究LASSO，它与岭回归的主要区别就在于把L2换成了L1，即w的绝对值之和</p>
@@ -205,14 +205,14 @@
 <p>所以当时有非常多的人去研究LASSO</p>
 <p>而LASSO之前并没有很多人去使用，主要是因为它并没有解析表达式，也就是求解LASSO是比较困难的，它是绝对值，求导比较难求，所以还是平方来的实在，大部分人都用L2</p>
 <p>当有人<strong>找到解法</strong>之后，就有很多人使用LASSO了，常用的解法如下图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425225006.png" alt="图4.1 LASSO回归"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425225006.png" alt="图4.1 LASSO回归"></p>
 <p>这些算法并不会在本文多去做介绍，如果大家有兴趣，可以找一些参考资料</p>
 <p>而且这些算法，在现在这些做回归的库里面，比如R语言，或者Python中的一些包（sklearn等）里面都是集成好了的，所以直接调用一下就可以了</p>
 <h2 id="岭回归与LASSO回归"><a href="#岭回归与LASSO回归" class="headerlink" title="岭回归与LASSO回归"></a>岭回归与LASSO回归</h2><p>我们知道岭回归和LASSO回归最主要的区别就是前者是L2，后者是L1</p>
 <p>由w的平方和，换成了w的绝对值之和</p>
 <p>为什么这么换就能够达到<a href='## LASSO回归'>上文</a>说的“使w变得<strong>稀疏</strong>”的效果呢？下面做一个简单的解释</p>
 <p>如下图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425231510.png" alt="图5.1 岭回归与LASSO回归"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425231510.png" alt="图5.1 岭回归与LASSO回归"></p>
 <p>我们想知道两个特征中哪一个比较重要，或者选择其中一项，即做一个特征的选择</p>
 <p>w1和w2构成了一个平面，在这个平面中，是可以取到w1和w2的任意组合的</p>
 <p>这其实本质上是一个三维的坐标，但我们把它投到二维平面上，还有一个隐藏的L坐标，就是最小优化目标损失</p>
@@ -229,11 +229,11 @@
 <p>如果考虑更高的维度，比如有三维、四维，那么LASSO实际上是高维空间里一个有很多尖角的形状，这个形状和同心圆去切，就很容易切出来很多地方是0，就会切到坐标轴上</p>
 <p>这些就是从原理上进行的一个简单的解释</p>
 <h2 id="L1惩罚函数形式"><a href="#L1惩罚函数形式" class="headerlink" title="L1惩罚函数形式"></a>L1惩罚函数形式</h2><p>如下图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425231928.png" alt="图6.1 L1惩罚函数形式"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425231928.png" alt="图6.1 L1惩罚函数形式"></p>
 <p>此时这个位置切到了0，这个时候w1=0，那么w1x这一项就被删掉了，就相当于数据列表中d1这一维就被删掉了，相当于没有选中d1，选中的是d2，这就是所说的做模型特征选择的方法，是一种很有意思的方法</p>
 <h2 id="正则化路径分析"><a href="#正则化路径分析" class="headerlink" title="正则化路径分析"></a>正则化路径分析</h2><p>与岭迹图类似，可以加上一个项，通过调整λ，可以使越来越多的变量变得稀疏，λ越大，稀疏的变量越多，圈越小</p>
 <p>如下图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425233033.png" alt="图7.1 正则化路径分析"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210425233033.png" alt="图7.1 正则化路径分析"></p>
 <p>每一条不同颜色的线就表示不同的维度，可以看到，随着λ的变化，值逐渐变成0</p>
 <p>比如lcp这条蓝线，逐渐缩小到0，直到最后大家都变成0，所以LASSO可以做特征选择</p>
 <p>如果λ取2，相当于位于左边的两个特征都没选中，其他特征都被选中去做回归</p>

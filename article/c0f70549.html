@@ -147,7 +147,7 @@
 </blockquote>
 <h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p>朴素贝叶斯和前面几种方法有些不一样，它是基于概率论的，也就是基于贝叶斯定理和条件独立假设的分类方法，所以它有一个概率论的背景，相对来说，理论上的基础会比较扎实一些</p>
 <p>它的应用场景其实是非常多的，解释性也是比较好，因为贝叶斯推理具有很好的解释性</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429210817.png" alt="图1.1 应用场景"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429210817.png" alt="图1.1 应用场景"></p>
 <h2 id="贝叶斯定理"><a href="#贝叶斯定理" class="headerlink" title="贝叶斯定理"></a>贝叶斯定理</h2><p>朴素贝叶斯的基本原理就是基于贝叶斯定理</p>
 <p>那么在这里简单的回顾一下，其实在概率论里面都学过</p>
 <p>假设有一些训练数据，输入是X，输出是Y，X和Y作为一对随机变量</p>
@@ -155,18 +155,18 @@
 <p>联合概率分布就是指数据X取到某个具体的值x且Y取到某一个类y的时候的概率，也就是说这两个同时出现的概率</p>
 <p>条件概率分布就是是指在数据X取到某个具体的值x的时候，Y取到某一个类y的概率</p>
 <p>假如现在有正类和负类，那么如下图所示——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429213152.png" alt="图2.1 条件概率分布解释"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429213152.png" alt="图2.1 条件概率分布解释"></p>
 <p>算出哪一个概率更大一些，来决定当前的数据x应该是属于哪一个类</p>
 <p>这就是基本的概率建模的一个思想</p>
 <p>除此之外，我们知道联合概率分布和条件概率分布之间是满足一定的关系的，可以把联合概率拆成如下形式——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429213253.png" alt="图2.2 贝叶斯定理"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429213253.png" alt="图2.2 贝叶斯定理"></p>
 <p>由于X和Y相互之间是可以交换的，所以也可以写成最后的形式</p>
 <p>然后对这个连等式再做一个简单的处理，就得到了<strong>贝叶斯定理</strong></p>
 <p>在贝叶斯定理中，我们对这几个概率是有一定的称呼的</p>
 <p>比如我们把P(Y)叫做先验概率，P(X|Y)叫做似然概率，P(X)叫做证据，P(Y|X)叫做后验概率</p>
 <p>接下来会介绍如何利用贝叶斯定理去做分类的任务，以及分别介绍怎样求取这几个部分来计算这个问题</p>
 <h2 id="贝叶斯"><a href="#贝叶斯" class="headerlink" title="贝叶斯"></a>贝叶斯</h2><p>在介绍朴素贝叶斯方法之前，再来介绍一些基本的概念，如图所示——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429214815.png" alt="图3.1 贝叶斯"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429214815.png" alt="图3.1 贝叶斯"></p>
 <p>数据x的每一个维度都对应着它的一个特征</p>
 <p>因为是做一个分类的任务，所以模型的输出Y是一个离散的随机变量，假设要分成c个类的话，Y就可以取到c</p>
 <p>如果是二分类的话，Y就是取1或2</p>
@@ -176,39 +176,39 @@
 <p>条件概率分布就是当给定标签Y的时候，X的概率是多少</p>
 <h2 id="利用朴素贝叶斯进行预测"><a href="#利用朴素贝叶斯进行预测" class="headerlink" title="利用朴素贝叶斯进行预测"></a>利用朴素贝叶斯进行预测</h2><p>那么怎么样利用贝叶斯定理进行预测或者计算数据的分类呢？</p>
 <p>实际上要计算的就是模型的后验概率</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429215548.png" alt="图4.1 利用贝叶斯定理进行预测"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429215548.png" alt="图4.1 利用贝叶斯定理进行预测"></p>
 <p>后验概率就是说，当输入的X=x的时候，P(Y=+|X=x)和P(Y=-|X=x)应该是多少，哪个大，就给x哪个标签</p>
 <p>类似的，如果是多分类的话，假设是分成n个类，需要分别计算这n个类的概率分布情况，哪个概率比较大，就给x哪个标签</p>
 <p>当数据给定的时候，P(X)是固定值，是个常数，所以不用考虑分母</p>
 <p>所以这个问题就转换成为另一个问题——要找到一个使得下图这个式子最大的k值——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429220054.png" alt="图4.2 最终式"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429220054.png" alt="图4.2 最终式"></p>
 <h2 id="朴素贝叶斯-1"><a href="#朴素贝叶斯-1" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p>这样的话，朴素贝叶斯就简化了</p>
 <p>就是计算两个部分，第一部分是似然概率，第二部分是先验概率</p>
 <p>其中先验概率刚刚讲过，是比较好计算的，就是看一下各个标签在所有数据集里面的数量占比</p>
 <p>比较难算的是似然概率，可能都算不出来，所以要做一些<strong>简化</strong>才能够做计算</p>
 <p>那么现在就扯到<strong>朴素</strong>这个词，它体现在下图所示的非常强的假设，即条件独立假设——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429221952.png" alt="图5.1 条件独立性假设"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429221952.png" alt="图5.1 条件独立性假设"></p>
 <p>由于X是d维的向量，条件独立假设假设的就是这个d维向量的每一维特征的产生都是相互独立的</p>
 <p>比如现在要看病，有很多维度，身高、体重、血压等等，假设这几个维度之间都是独立的，但身高体重之类的实际上是有一定的相关性的，实际上并不存在完全的条件独立</p>
 <p>但是朴素就朴素在强行认为所有的维度两两之间都是条件独立的</p>
 <p>这种朴素的假设，带来的好处就是，X展开成X1、X2、X3……，这一堆X都是条件独立的，根据开始讲的联合概率，可以拆成各个维度之间的乘积</p>
 <p>以二分类解释一下，就是计算当y是正类的时候，产生第一个维度的概率有多少，产生第二个维度的概率有多少……，这样就可以把原来的联合概率拆成一些小的似然概率的乘积</p>
 <p>接下去看，我们要找一个使得p这个式子最大的k值，也就是最有可能的那个分类，那么当给定X=x的时候，就可以利用贝叶斯公式写成右边的式子</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429222340.png" alt="图5.2 朴素贝叶斯分类器"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429222340.png" alt="图5.2 朴素贝叶斯分类器"></p>
 <p>如果假设X的每一维都是独立的，就又可以写成下面的形式，即各个维度连乘的形式，再乘上后验概率</p>
 <h2 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a>参数估计</h2><p>那么怎么样去计算上面的东西呢？</p>
 <p>要计算两个东西，一个是先验概率，一个是条件概率</p>
 <p>因为是分类问题，所以Y是离散的值，那么先验概率就可以用如下公式去计算——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429223211.png" alt="图6.1 先验概率计算"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429223211.png" alt="图6.1 先验概率计算"></p>
 <p>这里的指示函数类似与if语句写法，其实就是去选择一些y属于k类的标签，如果属于就是1，不属于就是0，如果加起来，其实就是y=k这个样本的个数，再除上总样本的个数</p>
 <p>先验概率分布既可以是这种方式统计出来的，其实也可以是人为设定的</p>
 <p>比如说在投硬币之前，我们会设定一个先验，就是假如这个硬币是无偏差的，即y为正的概率是0.5，为负的概率也是0.5</p>
 <p>接下来计算条件概率分布</p>
 <p>就是连乘的形式</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429224005.png" alt="图6.2 条件概率分布计算（离散）"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429224005.png" alt="图6.2 条件概率分布计算（离散）"></p>
 <p>那么就一个维度一个维度来考虑，假设X是离散值，能取1~s，现在考虑的是某个m维度，那么这个时候极大似然估计是非常容易计算的，与计算先验概率是很类似的，其实就是数一下数，首先把Y=k这个类的样本数一下，作为分母，然后再数一下，在这些Y=k的样本里，有多少X是等于s的，作为分子，就得到了条件概率分布</p>
 <p>如果特征值是连续变量的时候，有两种处理方法</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429225610.png" alt="图6.3 条件概率分布计算（连续）"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210429225610.png" alt="图6.3 条件概率分布计算（连续）"></p>
 <ul>
 <li><p>把连续值转化为离散值，之前就讲到过，有的时候需要对连续变量做一个离散化，当时就提到了，在朴素贝叶斯的时候，往往需要这样做，可以提高效率，有两种手段进行离散化</p>
 <ul>

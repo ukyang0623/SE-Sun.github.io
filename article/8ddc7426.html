@@ -151,12 +151,12 @@
 <p>决策树实际上是非常源于生活的，比如医生看病的过程就是一个决策的过程，会选择不同的维度来对病人做一个诊断，常见的维度比如说望闻问切四个维度，在医生的脑子里其实有一系列的规则，根据这些实际上可以形成一个比较好的决策系统，比如专家系统</p>
 <p>那么在决策系统里面，最重要的实际上就是我们所说的<strong>专家知识</strong>，也就是说<strong>一些规则</strong></p>
 <p>有的时候，我们其实并没有这样的规则，只有一堆数据，比如下图的表——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427165417.png" alt="图1.1 数据表"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427165417.png" alt="图1.1 数据表"></p>
 <p>现在已经收集到了一堆人，这堆人有一些属性，每个编号是一个人，一共是十个人，前面几列的因素我们认为是会影响“是否违约”这一列的</p>
 <p>那么我们能否从这样一个数据集里面去学到我们所需要的一些专家的规则，然后构建一个决策系统呢？</p>
 <p>这其实就是决策树所要解决的一个问题</p>
 <p>决策树实际上就是一棵树，包含了决策的过程，就像上文所说望闻问切一样，每一次我们要选择一个维度，比如说，看上面的例子，假设有如下图所示的规则，一共有四条规则——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427170442.png" alt="图1.2 决策树举例"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210427170442.png" alt="图1.2 决策树举例"></p>
 <p>所以这样四条规则就可以把“是否违约”这个问题从两个维度（收入和教育程度）进行划分</p>
 <p>这样一棵决策树实现起来是非常简单的，只要用if……else……这样的语句串联起来就可以实现这样一个决策过程</p>
 <p>难度在于，我们怎么样去确定if的条件，总的来说有两点——</p>

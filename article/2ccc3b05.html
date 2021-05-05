@@ -161,23 +161,23 @@
 <p>一般不方便计算</p>
 </li>
 </ul>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503135837.png" alt="图1.1 网络时延计算"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503135837.png" alt="图1.1 网络时延计算"></p>
 <p>接下来，更深入地探讨一下发送时延和传播时延</p>
 <p>假设主机要发送数据，横坐标表示距离，链路带宽为1Mb/s，信号在该链路上的传播速率为2x10^8m/s</p>
 <p>主机发送1个比特的信号，由于该链路的带宽为1Mb/s，因此主机的发送速率可以是1Mb/s</p>
 <p>那么主机发送完1比特的时间为（1b）/（1Mb/s），结果为1个微秒</p>
 <p><strong>大家思考一下</strong>，此时表示该比特的信号的前端已经传播出去多远了?</p>
 <p><strong>答案</strong>是200米</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503141444.png" alt="图1.2 主机发送第1个比特的信号"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503141444.png" alt="图1.2 主机发送第1个比特的信号"></p>
 <p>也就是用1微秒乘以信号在该链路上的传播速率2x10^8 m/s即可得出</p>
 <p>紧跟着第1个比特的信号，主机发送完第2个比特的信号</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503141629.png" alt="图1.3 主机发送第2个比特的信号"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503141629.png" alt="图1.3 主机发送第2个比特的信号"></p>
 <p>很显然，第2个比特也要耗费1微秒的发送时闻，此时共耗费2微秒，并且第1个比特的信号前端已经传播出去400m了，第2个比特的信号前端已经传播出去200m了</p>
 <p>紧跟着第2个比特的信号，主机发送完第3个比特的信号</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503141855.png" alt="图1.4 主机发送第3个比特的信号"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503141855.png" alt="图1.4 主机发送第3个比特的信号"></p>
 <p>第3个比特也要耗费1微秒的发送时间，此时共耗费3微秒，并且第1个比特的信号前端已经传播出去600m了，第2个比特的信号前端已经传播出去400m了，第3个比特的信号前端已经传播出去200m了</p>
 <p>如果我们把链路带宽提高8倍到8Mb/s，信号在该链路上的传播速率不变，来看看主机的发送情况</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503143418.png" alt="图1.5 链路带宽提高8倍"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503143418.png" alt="图1.5 链路带宽提高8倍"></p>
 <p>经过1微秒的时间，主机可将8比特信号连续发送出去，此时，最前面的那个比特的信号前端已经传播出去200m了</p>
 <p>很显然，与1Mb/s的带宽相比，单位时间内发送的比特数量提高了8倍</p>
 <p>紧跟着之前8比特的信号，主机又发送完8比特的信号，很显然，这8比特也要耗费1微秒的发送时间，此时共耗费2微秒，并且最前面的那个比特的信号前端已经传播出去400m了</p>
@@ -186,12 +186,12 @@
 <p>此时主机已累计发送完24比特信号，是1Mb/s带宽时的8倍</p>
 <p>希望通过这样的对比，能加深大家对发送时延、传播时延的理解</p>
 <p>下面做练习</p>
-<h3 id="例1——"><a href="#例1——" class="headerlink" title="例1——"></a>例1——</h3><p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503144919.png" alt="图2.1 例1"></p>
+<h3 id="例1——"><a href="#例1——" class="headerlink" title="例1——"></a>例1——</h3><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503144919.png" alt="图2.1 例1"></p>
 <p>大家一定会放自然地想到，主机发送这1b信息的发送时延，加上该比特信号在60m长的链路上的传播时延，就是所耗费的总时间</p>
 <p>没错，确实是这样</p>
 <p>但是，我们想基于这个练习，来看看其中的细节问题</p>
 <p>根据题意，画出示意图——</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503145524.png" alt="图2.2 发送时延计算"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503145524.png" alt="图2.2 发送时延计算"></p>
 <p>主机将表示这1比特的信号发送到链路上，所耗费的时间，也就是发送时延，计算为（1b）/（10Mb/s），结果为10^-7s</p>
 <p><strong>请大家思考一下</strong>：此时信号的前端已经传播出去多远了?</p>
 <p><strong>答案</strong>是20m，计算过程在图中</p>
@@ -200,16 +200,16 @@
 <p>很显然，另一台主机现在还未接收到该信号</p>
 <p>一段时间之后，该信号的前端到达另一台主机，主机对该信号进行接收，直到该信号末端到达主机，主机才对这1比特信息接收完毕</p>
 <p>从上述过程可以看出，当主机将这1比特的信号发送到链路上以后，信号末端（或称为信号后沿）还需经过1个传播时延才能到达另一台主机</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503145921.png" alt="图2.3 传播时延计算"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503145921.png" alt="图2.3 传播时延计算"></p>
 <p>传播时延计算过程在上图中，总时延加一下就好</p>
 <p>下面，将题目稍微改动一下</p>
 <p>如图所示，将链路长度从原来的60m更改为20m，其他条件不变，来看看具体的传输过程</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503150427.png" alt="图2.4 距离改为20m"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503150427.png" alt="图2.4 距离改为20m"></p>
 <p>主机将表示这1比特的信号发送到链路上，所耗费的时间（也就是发送时延）是不变的</p>
 <p>此时，信号的前端已经传播出去20m，也就是说，刚刚到达另一台主机，而该信号的后端还要经过1个传播时延才能到达另一台主机</p>
 <p>传播时延也是正常计算</p>
 <p>如果将链路长度再<strong>减小为10m</strong>，其他条件不变，具体传输过程又是怎样的呢？</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503150700.png" alt="图2.5 距离改为10米"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503150700.png" alt="图2.5 距离改为10米"></p>
 <p>主机将表示这1比特的信号发送到链路上，所耗费的时间（也就是发送时延）是不变的</p>
 <p>此时，信号的前半段已经被另一台主机接收，而该信号的后端还要经过1个传播时延才能到达另一台主机</p>
 <p>传播时延也是正常计算</p>
@@ -219,7 +219,7 @@
 <li>既然我们之前计算过1个比特的总耗费时间，而现在变成n比特，那么接收完n比特信息的总时间就应该是将1个比特的总耗费时间乘以n</li>
 <li>首先计算发送时延，正常计算，然后计算传播时延，正常计算</li>
 </ol>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503151507.png" alt="图2.6 两种解法"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503151507.png" alt="图2.6 两种解法"></p>
 <p>请问，那一种解法是正确的？</p>
 <p>应该是<strong>第二种解法正确</strong></p>
 <p>如果错误地认为第一种解法正确，那表明大家还没有完全理解我们之前练习所演示的具体过程</p>
@@ -227,12 +227,12 @@
 <p>第一个比特还没接收第二个就已经发送了，第一种解法部分时间重复计算</p>
 </blockquote>
 <p>再来回顾一下传输过程</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503151958.png" alt="图2.7 传输过程"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503151958.png" alt="图2.7 传输过程"></p>
 <p>比特信号是一个跟着一个向前同时传播的，因此，无论有多少个比特，在总时延中只包含一个传播时延</p>
 <p>增加比特数量，只是增大了发送时延，而传播时延数量不变</p>
 <p>因此，第一种解法的错误在于：重复包含了（n-1）个传播时延</p>
 <p>在解答有关时延的问题时，建议大家画出类似下图所示的示意图，这样非常有助于我们对问题的分析</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503152713.png" alt="图2.8 一段链路时延示意图"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503152713.png" alt="图2.8 一段链路时延示意图"></p>
 <p>横坐标表示时间，纵坐标表示一段或多段链路</p>
 <p>用这样的平行四边形来表示数据传输，这样非常容易看出发送时延和传播时延</p>
 <p>由于比特单位太小，我们讨论问题时，常常使用分组，一个分组由若干个比特构成</p>
@@ -240,7 +240,7 @@
 <p>若主机在一段链路上连续发送分组，则总时延为所有分组的发送时延加上信号在这一段链路上的传播时延</p>
 <p>我们再来看看分组在分组交换网（也就是多段链路）上的传输情况</p>
 <p>我们使用<strong>三个示意图</strong>来对比说明，从示意图上可以非常清楚的看出总时延的构成</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503153834.png" alt="图2.9 多段链路时延示意图"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503153834.png" alt="图2.9 多段链路时延示意图"></p>
 <p>假设各分组都是等长的，各链路的长度相同，带宽也相同，忽略路由器的处理时延</p>
 <p>横坐标是时间，纵坐标表示两台主机间有两台路由器，由三段链路构成</p>
 <ul>
@@ -253,25 +253,25 @@
 </ul>
 <p>来找规律</p>
 <p>这三种情况有一部分时延是相同的，如图所示</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503154034.png" alt="图2.10 部分相同"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503154034.png" alt="图2.10 部分相同"></p>
 <p>这是因为都是三段链路，并且都要经过两个路由器的转发</p>
 <p>不同的是剩下的部分，这取决于<strong>分组的数量</strong></p>
 <p>那么，根据这个规律，可以总结出n个分组，m段链路的情况下，总时延的构成</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503154803.png" alt="图2.11 整个传输过程包含哪些时延"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503154803.png" alt="图2.11 整个传输过程包含哪些时延"></p>
 <p>记住结论，可以加快解题速度，但是不要忘记该结论的<strong>前提</strong>，即假设</p>
 <p>下面使用上文介绍的这些知识来解题</p>
-<h3 id="例2——"><a href="#例2——" class="headerlink" title="例2——"></a>例2——</h3><p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503155726.png" alt="图3.1 例2"></p>
+<h3 id="例2——"><a href="#例2——" class="headerlink" title="例2——"></a>例2——</h3><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503155726.png" alt="图3.1 例2"></p>
 <p>本题考查电路交换、分组交换、以及时延的相关知识</p>
 <p>根据题意，可以画出电路交换的示意图</p>
 <p>使用电路交换进行通信，必须先建立连接，s秒，接下来就可以进行通信了</p>
 <p><strong>比特流在各中间结点都是直通传输</strong></p>
-<h3 id="例3——"><a href="#例3——" class="headerlink" title="例3——"></a>例3——</h3><p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503161412.png" alt="图4.1 例3"></p>
-<h3 id="例4——"><a href="#例4——" class="headerlink" title="例4——"></a>例4——</h3><p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503162108.png" alt="图5.1 例4"></p>
+<h3 id="例3——"><a href="#例3——" class="headerlink" title="例3——"></a>例3——</h3><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503161412.png" alt="图4.1 例3"></p>
+<h3 id="例4——"><a href="#例4——" class="headerlink" title="例4——"></a>例4——</h3><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503162108.png" alt="图5.1 例4"></p>
 <p>对比一下本题中的<strong>报文交换</strong>和分组交换</p>
 <p>路由器只有将整个报文接收完毕后才能对其转发</p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503162138.png" alt="图5.2 对比报文交换和分组交换"></p>
-<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503162755.png" alt="图5.3 最后结果"></p>
-<h3 id="例5——"><a href="#例5——" class="headerlink" title="例5——"></a>例5——</h3><p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503163220.png" alt="图6.1 例5"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503162138.png" alt="图5.2 对比报文交换和分组交换"></p>
+<p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503162755.png" alt="图5.3 最后结果"></p>
+<h3 id="例5——"><a href="#例5——" class="headerlink" title="例5——"></a>例5——</h3><p><img src= "/images/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210503163220.png" alt="图6.1 例5"></p>
 <p>如果有分组头，那么就老老实实算，因为<strong>分组头开销也算时延的一部分！！</strong></p>
 <p>如果分组头忽略，那么分组时延的第一部分就是整个报文的发送时延</p>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.se-sun.cn/article/2ccc3b05.html">https://www.se-sun.cn/article/2ccc3b05.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.se-sun.cn" target="_blank">帅yang的博客</a>！</span></div></div><div class="tag_share"><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/支付宝收款.JPG" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/支付宝收款.JPG" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/微信收款.JPG" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/微信收款.JPG" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/article/b36ac491.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">物理层的基本概念</div></div></a></div><div class="next-post pull-right"><a href="/article/455cee9f.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">体系结构相关习题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/article/6218683d.html" title="第二章 物理层 章节小结"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-04</div><div class="title">第二章 物理层 章节小结</div></div></a></div><div><a href="/article/71cc5dab.html" title="信道的极限容量"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-04</div><div class="title">信道的极限容量</div></div></a></div><div><a href="/article/e3a9ff1b.html" title="编码与调制"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-04</div><div class="title">编码与调制</div></div></a></div><div><a href="/article/3442d5db.html" title="传输方式"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-03</div><div class="title">传输方式</div></div></a></div><div><a href="/article/2d0e5132.html" title="物理层下面的传输媒体"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-03</div><div class="title">物理层下面的传输媒体</div></div></a></div><div><a href="/article/b36ac491.html" title="物理层的基本概念"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-03</div><div class="title">物理层的基本概念</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/我的头像" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120145740.gif'" alt="avatar"/><div class="author-info__name">yang</div><div class="author-info__description">后端小白的成长过程记录，打好基础，扎实学习</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SE-Sun"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170642.png" target="_blank" title="点击添加微信好友"><i class="iconfont icon-weixin1x card_icon"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170502.png" target="_blank" title="点击添加QQ好友"><i class="iconfont icon-qq card_icon"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210120170842.png" target="_blank" title="点击添加支付宝好友"><i class="iconfont icon-alipay1 card_icon"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">21年初重新开博客，咕咕太久了，还是记些东西，大学总得学点什么，不能白过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BB%B6%E7%9B%B8%E5%85%B3%E4%B9%A0%E9%A2%98%E8%AE%B2%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">时延相关习题讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E6%96%87%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.1.</span> <span class="toc-text">前文回顾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B1%E2%80%94%E2%80%94"><span class="toc-number">1.2.</span> <span class="toc-text">例1——</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B2%E2%80%94%E2%80%94"><span class="toc-number">1.3.</span> <span class="toc-text">例2——</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B3%E2%80%94%E2%80%94"><span class="toc-number">1.4.</span> <span class="toc-text">例3——</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B4%E2%80%94%E2%80%94"><span class="toc-number">1.5.</span> <span class="toc-text">例4——</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B5%E2%80%94%E2%80%94"><span class="toc-number">1.6.</span> <span class="toc-text">例5——</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/6218683d.html" title="第二章 物理层 章节小结"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第二章 物理层 章节小结"/></a><div class="content"><a class="title" href="/article/6218683d.html" title="第二章 物理层 章节小结">第二章 物理层 章节小结</a><time datetime="2021-05-04T14:26:45.000Z" title="发表于 2021-05-04 22:26:45">2021-05-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/71cc5dab.html" title="信道的极限容量"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="信道的极限容量"/></a><div class="content"><a class="title" href="/article/71cc5dab.html" title="信道的极限容量">信道的极限容量</a><time datetime="2021-05-04T14:26:36.000Z" title="发表于 2021-05-04 22:26:36">2021-05-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/e3a9ff1b.html" title="编码与调制"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编码与调制"/></a><div class="content"><a class="title" href="/article/e3a9ff1b.html" title="编码与调制">编码与调制</a><time datetime="2021-05-04T14:26:22.000Z" title="发表于 2021-05-04 22:26:22">2021-05-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/3442d5db.html" title="传输方式"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="传输方式"/></a><div class="content"><a class="title" href="/article/3442d5db.html" title="传输方式">传输方式</a><time datetime="2021-05-03T14:35:27.000Z" title="发表于 2021-05-03 22:35:27">2021-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/2d0e5132.html" title="物理层下面的传输媒体"><img data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210124043258.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="物理层下面的传输媒体"/></a><div class="content"><a class="title" href="/article/2d0e5132.html" title="物理层下面的传输媒体">物理层下面的传输媒体</a><time datetime="2021-05-03T11:24:43.000Z" title="发表于 2021-05-03 19:24:43">2021-05-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By yang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">CDN BY <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/"><strong>jsDelivr</strong></a> | HOST BY <a target="_blank" rel="noopener" href="https://coding.net/"><strong>Coding</strong></a> && <a target="_blank" rel="noopener" href="https://github.com/"><strong>Github</strong></a><br>这里由衷感谢各位前辈优秀的博客对我的帮助</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>(()=>{
