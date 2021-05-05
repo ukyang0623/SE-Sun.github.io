@@ -164,11 +164,11 @@
 <p>报文交换最早或者说最具代表性的一个应用是早期的、上个世纪五六七十年代在使用的一种电报通信方式；要发一个电报，在一个站点把电报发出去，到下一个站点把整个电报收下来然后再进一步转发，以此类推</p>
 </li>
 </ul>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127082907.png" alt="图2-1 报文交换"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127082907.png" alt="图2-1 报文交换"></p>
 <h2 id="分组交换（package-switching）"><a href="#分组交换（package-switching）" class="headerlink" title="分组交换（package switching）"></a>分组交换（package switching）</h2><ul>
 <li><p><font color=red>分组</font>：报文分拆出来的一系列相对较小的数据包</p>
 <p>拆分出的报文的原始数据，通常还会在原始数据基础上，加上头部信息，一般来说会加上控制信息，比如地址信息</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127112729.png" alt="图3-1 增加头部信息"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127112729.png" alt="图3-1 增加头部信息"></p>
 <p>举例，我们在邮信，写了一封信，不能把这张纸直接交给邮政系统帮你邮寄了，这个不行，你得装到信封里，信封上还必须写上重要的信息——地址信息，这才构成完整的一封信</p>
 <p>分组交换也一样，报文拆分出来的每个小的数据包，每一块小的数据，要重新打包，加上一个头，这时才构成一个完整的分组</p>
 <p>分组交换与报文交换相比较，有一个报文的拆分和重组的过程</p>
@@ -185,14 +185,14 @@
 <p>拆分和重组是由端系统负责的，不由中间的路由和接入点负责</p>
 </blockquote>
 <p>  接下来通过示意图来看看分组交换大致的工作过程</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127112628.png" alt="图3-2 分组交换"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127112628.png" alt="图3-2 分组交换"></p>
 <p>  假设发送的是一个文件，那么要在源主机把报文进行拆分，拆分成一系列小的分组，不妨假设这些分组大小都是一样的，另外为了展示分组交换大致的过程，暂时不去考虑分组的时候加的额外的头部信息的开销；拆分完后，源主机就是一个分组一个分组来进行转发的；首先把第一个分组发送给中间的路由器，中间路由器收下后，进一步可以向目的主机进行转发；这里需要注意，当路由器向目的主机转发第一个分组的时候，同时源主机也在向路由器发送第二个分组；这个过程一直持续下去，最终所有拆分出来的分组都会发送到目的主机；到了目的主机以后，目的主机将这些分组所携带的原报文中的部分数据按照顺序重新组装在一起，就得到了原始的报文，这样一个报文的传输就完成了</p>
 <h2 id="分组交换：统计多路复用（Statistical-Multiplexing）"><a href="#分组交换：统计多路复用（Statistical-Multiplexing）" class="headerlink" title="分组交换：统计多路复用（Statistical Multiplexing）"></a>分组交换：统计多路复用（Statistical Multiplexing）</h2><p>报文交换网络和分组交换网络在通信过程中并不像电路交换网络那样——在通信之前要建立电路，要把中间的共享的链路的一些资源，比如说带宽分过来，占用下来，然后使用占用带宽进行通信</p>
 <blockquote>
 <p>那么分组交换网络是怎么共享链路的呢？</p>
 </blockquote>
 <p>以如下示意图为例，其实中间那条链路就是被A和B两个主机的通信进行共享的；这个共享并不是事先把这个1.5M的链路带宽分配给A一部分，分配给B一部分；事实上A和B发送的数据到了路由器如果都要通过这个链路进行转发的时候，不管转发的是A的数据还是B的数据，路由器都是利用1.5M的带宽的全部带宽进行转发；如果A发送的数据从统计角度来说比B发送的数据多，那么显然A平均占用的共享链路带宽就比B多，反之也一样；考虑极端情况，如果A发送数据，但B并不发数据，这时候带宽就几乎被A全部占用；因此，在分组交换网络中这种链路的共享并不是事先分配好的，具有很强的随机性，看谁发的数据多，谁发的数据少；因此，我们把这种链路共享也称之为<strong>统计多路复用</strong>，和前面电路交换中的FDM和TDM之类的名称相对应</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127114225.png" alt="图4-1 统计多路复用"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127114225.png" alt="图4-1 统计多路复用"></p>
 <p>统计多路复用最大的特点就是<strong>按需共享链路</strong></p>
 <ul>
 <li><p>A&amp;B分组序列不确定，按需共享链路</p>
@@ -202,7 +202,7 @@
 <blockquote>
 <p>报文交换和分组交换-统计多路复用-按需共享</p>
 </blockquote>
-<h2 id="存储-转发（store-and-forward）"><a href="#存储-转发（store-and-forward）" class="headerlink" title="存储-转发（store-and-forward）"></a>存储-转发（store-and-forward）</h2><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127172708.png" alt="图5-1 存储-转发"></p>
+<h2 id="存储-转发（store-and-forward）"><a href="#存储-转发（store-and-forward）" class="headerlink" title="存储-转发（store-and-forward）"></a>存储-转发（store-and-forward）</h2><p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210127172708.png" alt="图5-1 存储-转发"></p>
 <p>分组交换网络通信过程中，每一个分组从上一个节点把这个分组完整的发到下一个节点（比如源主机到路由器的过程），路由器要把整个分组接收下来，然后再决定这个分组怎么转发，再在相应的输出端口的链路上再把它发出去，发到下一个节点上，以此类推这样一个过程</p>
 <p>因此我们把分组交换这样的数据传输过程称之为存储-转发过程</p>
 <p>先把数据分组接收过来，暂存一下，确定要从哪一个链路把它再往下发出去，并且那个链路现在可用了，那就用这个链路直接把它发走，转发</p>

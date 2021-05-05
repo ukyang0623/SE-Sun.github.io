@@ -152,23 +152,23 @@
 <p>那么什么是数据交换？为什么需要数据交换？</p>
 </blockquote>
 <h2 id="为什么需要数据交换？"><a href="#为什么需要数据交换？" class="headerlink" title="为什么需要数据交换？"></a>为什么需要数据交换？</h2><p>首先看一下这样的场景：</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210125183627.png" alt="图2-1 主机之间简单建立链路"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210125183627.png" alt="图2-1 主机之间简单建立链路"></p>
 <p>如果任意两台主机之间需要通信的话，最简单的解决方案就是在这两台主机之间建立一条链路，也就是说，通过一条通信链路把两台主机连在一起，只要两台主机之间有物理链路相连，这两台主机就具备了进行通信的基础。但是有些问题，如果主机数量太多，需要的链路数量就会急剧增加，每一台主机需要维护的链路数就会急剧增加，这就是N^2链路问题</p>
 <h3 id="N-2链路问题"><a href="#N-2链路问题" class="headerlink" title="N^2链路问题"></a><font color=red>N^2链路问题</font></h3><p>如果主机数量是N，那么需要的总的链路数为N(N-1)/2</p>
 <p>一方面，在经济上，这是不可行的，成本会非常高</p>
 <p>另一方面，在技术上，从一台主机出发，有N-1条链路要连接出去，也存在很大难度</p>
 <p>解决方法：现代网络引入了一个特殊的设备——交换设备，让主机和交换设备连接，这种情况下，每台主机只需要一条链路就可以了；交换设备可以在主机之间实现动态的数据转发</p>
 <p>但以上解决方法也有局限性，局限性在于，如果主机数量特别多，交换设备端口就需要特别大；如果网络规模特别大，主机距离特别远，那么也很难都连接到一个交换设备上</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210125184406.png" alt="图2-2 交换设备"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210125184406.png" alt="图2-2 交换设备"></p>
 <h3 id="连通性"><a href="#连通性" class="headerlink" title="连通性"></a><font color=red>连通性</font></h3><h3 id="网络规模"><a href="#网络规模" class="headerlink" title="网络规模"></a><font color=red>网络规模</font></h3><p>那么为了保证连通性，维护并且适应不同的网络规模，可以把交换设备互连在一起，构造成交换网络，让主机和交换网络里的某一个交换设备连接，交换网络能够帮助我们把数据进行转发接续最终送到目的地</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210125191255.png" alt="图2-3 交换网络"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210125191255.png" alt="图2-3 交换网络"></p>
 <h2 id="交换？"><a href="#交换？" class="headerlink" title="交换？"></a>交换？</h2><p>两层含义</p>
 <h3 id="动态转接"><a href="#动态转接" class="headerlink" title="动态转接"></a>动态转接</h3><p>一层含义是交换设备具备动态转接的功能</p>
 <p>可以在所有交换设备端口之间动态的在物理上或者是逻辑上建立端口之间的连接，将一个端口的数据转移到另一个端口，并且这种连接在很多设备里面可以并行的进行。这样的思想、概念被现在很多网络所采纳，比如电话网络中的交换机</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126161520.png" alt="图3-1 动态转换"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126161520.png" alt="图3-1 动态转换"></p>
 <h3 id="动态分配传输资源"><a href="#动态分配传输资源" class="headerlink" title="动态分配传输资源"></a><font color=red>动态分配传输资源</font></h3><p>另一层含义是在交换网络层面上，动态网络如何去动态的分配传输资源，实现数据从源主机穿越交换网络，送到正确的目的主机这样一个过程</p>
 <p>我们在计算机网络这门课中比较关心的是这个层面的交换</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126161534.png" alt="图3-2 动态分配传输资源"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126161534.png" alt="图3-2 动态分配传输资源"></p>
 <h2 id="数据交换的类型"><a href="#数据交换的类型" class="headerlink" title="数据交换的类型"></a>数据交换的类型</h2><p>在现在的网络中，数据交换从数据分类上看，大致可以分为如下三大类。在这一篇中，首先介绍一下电路交换</p>
 <ul>
 <li><p>电路交换</p>
@@ -195,9 +195,9 @@
 <h3 id="独占资源"><a href="#独占资源" class="headerlink" title="独占资源"></a><font color=red>独占资源</font></h3><p>电路交换在整个通信过程中，最显著的一个特点</p>
 <p>两个电话之间，在通话过程中，建立起了电路所占有的通信资源，比如信道资源，是不能被第三方所共享的</p>
 <p>举例，两个人通话，电话接通，说了一半，双方都沉默了不说话，这个时候事实上是没有语音数据传输的，但是该电路所占用的电路资源是不能被第三方使用的。除非挂机了，把整个电路释放了、拆除了，第三方在通话中才可能使用它刚刚占用的资源</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126174406.png" alt="图5-1 电话网络"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126174406.png" alt="图5-1 电话网络"></p>
 <h2 id="电路交换网络的链路共享？"><a href="#电路交换网络的链路共享？" class="headerlink" title="电路交换网络的链路共享？"></a>电路交换网络的链路共享？</h2><p>这里面存在个问题，如果一个网络采用电路交换进行通信的话，那么任意两个通信方要通信，就需要建立一条电路，另外有其他通信方，那么还需要建立其他电路，从示意图中可以看出，中间有很多链路在多个电路中是要共享的，这些链路我们通常称之为<strong>中继线</strong>。以上是借用电话网络的概念</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126175922.png" alt="图6-1 电路交换网络的链路共享"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210126175922.png" alt="图6-1 电路交换网络的链路共享"></p>
 <blockquote>
 <p>上面讲过，电路交换要独占资源，那么是不是这些链路就被其中一个电话的通话占用了，其他通话就不能再用了呢？</p>
 <p>显然不是的</p>

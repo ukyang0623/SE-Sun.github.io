@@ -157,11 +157,11 @@
 <h2 id="常见的计算机网络体系结构"><a href="#常见的计算机网络体系结构" class="headerlink" title="常见的计算机网络体系结构"></a>常见的计算机网络体系结构</h2><p>为了使不同体系结构的计算机网络都能互连，国际标准化组织于1977年成立了专门机构研究该问题</p>
 <p>不久，他们就提出了一个试图使各种计算机在世界范围内互连成网的标准框架，也就是著名的<strong>“开放系统互连参考模型”，简称OSI</strong></p>
 <p>该模型是一个七层协议的体系结构，它是<strong>法律上的国际标准</strong>，如下图所示——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430165550.png" alt="图1.1 OSI体系结构"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430165550.png" alt="图1.1 OSI体系结构"></p>
 <p>到了20世纪90年代初期，虽然整套的OSI国际标准都已经制定出来了，但这时因特网已抢先在全世界覆盖了相当大的范围</p>
 <p>因特网从1983年开始使用TCP/IP协议族，并逐步演变成<strong>TCP/IP参考模型</strong></p>
 <p>该模型是一个四层协议的体系结构，它是<strong>事实上的国际标准</strong>，如下图所示——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430165611.png" alt="图1.2 TCP/IP体系结构"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430165611.png" alt="图1.2 TCP/IP体系结构"></p>
 <p>在过去，制定标准的组织中往往以专家、学者为主</p>
 <p>但现在，许多公司都纷纷挤进各种各样的标准化组织，使得技术标准有着浓厚的商业气息</p>
 <p>一个新标准的出现，有时不一定反映出其技术水平是最先进的，而是往往有着一定的市场背景</p>
@@ -174,34 +174,34 @@
 <li>OSI的层次划分也不太合理，有些功能在多个层次中重复出现</li>
 </ol>
 <p>对比这两个体系结构可以看出，TCP/IP体系结构相当于将OSI体系结构的物理层和数据链路层合并为了网络接口层，并去掉了会话层和表示层</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430165651.png" alt="图1.3 两个体系结构的对比"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430165651.png" alt="图1.3 两个体系结构的对比"></p>
 <p>另外，由于TCP/IP在网络层使用的协议是IP协议，IP协议的中文意思是网际协议，因此，TCP/IP体系结构的网络层常称为网际层 </p>
 <p>大多数用户每天都有接入因特网的需求，这就要求用户的主机必须使用TCP/IP协议</p>
 <p>当然，即使用户的网络不需要接入因特网，也可以使用TCP/IP协议</p>
 <p>在用户主机的操作系统中，通常都带有符合TCP/IP体系结构标准的TCP/IP协议族</p>
 <p>而用于网络互连的路由器中，也带有符合TCP/IP体系结构标准的TCP/IP协议族，只不过路由器一般只包含网络接口层和网际层</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430183448.png"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430183448.png"></p>
 <p>TCP/IP体系结构的<strong>网络接口层</strong>并没有规定什么具体的内容，这样做的目的是可以互连全世界各种不同的网络接口，例如有线的以太网接口，无线局域网的WiFi接口，而不限定仅使用一种或几种网络接口，因此，本质上TCP/IP体系结构只有上面的三层</p>
 <p>IP协议是TCP/IP体系结构<strong>网际层</strong>的核心协议</p>
 <p>TCP和UDP是TCP/IP体系结构<strong>运输层</strong>的两个重要协议</p>
 <p>TCP/IP体系结构的<strong>应用层</strong>包含了大量的应用层协议，例如HTTP、SMTP、DNS、RTP等</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430183943.png"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430183943.png"></p>
 <p>即便大家是计算机网络的初学者，对HTTP这个缩写词也不会陌生，因为每当我们打开浏览器，在地址栏输入网址时，就会看到它</p>
 <p>IP协议可以将不同的网络接口进行互连，并向其上的TCP协议和UDP协议提供网络互连服务</p>
 <p>而TCP协议在享受IP协议提供的网络互连服务的基础上，可向应用层的相应协议提供可靠传输的服务</p>
 <p>UDP协议在享受IP协议提供的网络互连服务的基础上，可向应用层的相应协议提供不可靠传输的服务</p>
 <p>IP协议作为TCP/IP体系结构中的核心协议，一方面负责互连不同的网络接口，也就是IP over everything</p>
 <p>另一方面，为各种网络应用提供服务，也就是Everything over IP</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430184054.png"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430184054.png"></p>
 <p>在TCP/IP体系结构（协议体系）中包含有大量的协议，IP协议和TCP协议是其中非常重要的两个协议</p>
 <p>因此，用TCP和IP这两个协议来表示整个协议大家族，常称为<strong>TCP/IP协议族</strong></p>
 <p>顺便提一下，在嵌入式系统开发领域，TCP/IP协议族常称为TCP/IP协议栈，这是因为TCP/IP协议体系的分层结构，与数据结构中的栈，在图形画法上是类似的</p>
 <p>由于TCP/IP体系结构为了将不同的网络接口进行互连，因此它的网络接口层并没有规定什么具体的内容</p>
 <p>然而，这对于我们学习计算机网络的完整体系而言，就会缺少一部分内容</p>
 <p>因此，在学习计算机网络原理时往往采取折中的办法，也就是综合OSI和TCP/IP的优点，采用一种五层协议的原理体系结构，五层协议的原理体系结构如下图所示——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430181801.png"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430181801.png"></p>
 <p>可以看出，五层协议的原理体系结构，将TCP/IP体系结构的网络接口层又重新划分为了物理层和数据链路层</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430181924.png"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210430181924.png"></p>
 <p>这样更有利于我们对计算机网络原理的学习</p>
 <blockquote>
 <p>计算机体系结构为什么要分层？各层的主要任务是什么？下文会介绍</p>

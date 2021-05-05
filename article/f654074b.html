@@ -150,8 +150,8 @@
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前聊过关于网站收录的事儿，比较无脑的就是每次写个页面就手动提交一下，但效率太低</p>
 <p>后面讲到用sitemap的常见插件主动提交sitemap来让搜索引擎爬虫爬到，而由于某些主机，比如github，禁止百度爬虫访问博客，导致博客无法被百度收录，所以又采用双向部署，国内部署在coding上，以此来让网站被爬到</p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>现在又出现新的问题了，sitemap无法被抓取，一直显示抓取失败，这边截个图</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210423232119.png" alt="图2.1 sitemap抓取失败"></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210423232145.png" alt="图2.2 抓取失败原因"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210423232119.png" alt="图2.1 sitemap抓取失败"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210423232145.png" alt="图2.2 抓取失败原因"></p>
 <p>研究了一阵子，没研究出什么所以然来，大概就是玄学问题吧。。。</p>
 <p>最后决定不干了，干脆换个方式得了</p>
 <p>注意到百度提供了主动提交的接口，于是去查到了<strong>相关插件</strong>来配合接口实现主动提交站点链接，官方也说明了主动提交的好处：</p>
@@ -164,7 +164,7 @@
 <h4 id="第二步：修改站点配置文件-config-yml"><a href="#第二步：修改站点配置文件-config-yml" class="headerlink" title="第二步：修改站点配置文件_config.yml"></a>第二步：修改站点配置文件_config.yml</h4><p>增加如下配置——</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 1	# 提交最新的一个链接，一般是这样设置，也可以根据需求自行修改数值</span><br><span class="line">  host: zhy.one	# 在百度站长平台中注册的域名</span><br><span class="line">  token: 5qxxxEqxxxxxgpxe	# 是你在百度站长平台的密钥，不能公开，除非使用私有仓库，否则不建议使用							  travis-ci等持续集成来部署hexo</span><br><span class="line">  path: baidu_urls.txt	# 文本文档的名字和地址， 新链接会保存在此文本文档里，你可以自己更换名字</span><br></pre></td></tr></table></figure>
 <p>查看百度站长平台的密钥——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210423234741.png" alt="图3.1 查看百度站长平台的密钥"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210423234741.png" alt="图3.1 查看百度站长平台的密钥"></p>
 <p>还是很容易找到的</p>
 <h4 id="第三步：检查站点配置文件里url设置"><a href="#第三步：检查站点配置文件里url设置" class="headerlink" title="第三步：检查站点配置文件里url设置"></a>第三步：检查站点配置文件里url设置</h4><p>url必须包含有百度站长平台注册的域名（一般有www），比如——</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url: https:&#x2F;&#x2F;www.se-sun.cn&#x2F;		# 主要看这一行                                </span><br><span class="line">root: &#x2F; </span><br><span class="line">permalink: article&#x2F;:abbrlink.html</span><br></pre></td></tr></table></figure>

@@ -152,7 +152,7 @@
 </ul>
 <p>首先来看最简单的情况</p>
 <h3 id="两台计算机通过一条网线连接起来"><a href="#两台计算机通过一条网线连接起来" class="headerlink" title="两台计算机通过一条网线连接起来"></a>两台计算机通过一条网线连接起来</h3><p>如下图所示——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501143231.png" alt="图1.1 最简单的情况"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501143231.png" alt="图1.1 最简单的情况"></p>
 <p>对于这种最简单的情况，我们需要考虑以上两个问题</p>
 <p>一个是采用怎样的传输媒体，图为常见的双绞线网线</p>
 <p>另一个是在计算机上采用怎样的物理接口来连接传输媒体，图为RJ45以太网接口</p>
@@ -171,7 +171,7 @@
 <p>假设我们已经解决了物理层的问题，也就是说，主机间可以发送信号来传输比特0或1了</p>
 <p>我们来看看，在这样一个总线型网络上，还面临什么需要解决的问题</p>
 <p>如下图所示——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501144222.png" alt="图2.1 总线型网络"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501144222.png" alt="图2.1 总线型网络"></p>
 <p>主机A要给主机C发送数据，但是，表示数据的信号会通过总线传播到总线上的每一个主机</p>
 <p><strong>那么问题来了</strong>，主机C如何知道该数据是发送给自己的，自己要接受？</p>
 <ul>
@@ -186,21 +186,21 @@
 <li>如何从信号所表示的一连串比特流中区分出地址和数据</li>
 </ul>
 <p>另外，对于总线型的网络，还会出现下面这种典型的问题——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501144450.png" alt="图2.2 信号碰撞"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501144450.png" alt="图2.2 信号碰撞"></p>
 <p>例如，某个时刻总线是空闲的，也就是没有主机使用总线来发送数据，片刻之后，主机B和D同时向总线发送数据，这必然会造成信号碰撞</p>
 <p>因此，如何协调各主机争用总线，也是<strong>必须要解决的问题</strong></p>
 <p>总结如下图——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501144955.png" alt="图2.3 三个问题总结"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501144955.png" alt="图2.3 三个问题总结"></p>
 <p>需要说明的是，这种总线型的网络早已淘汰，现在常用的是使用以太网交换机将多台主机互连形成的交换式以太网</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501145026.png" alt="图2.4 交换式以太网"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501145026.png" alt="图2.4 交换式以太网"></p>
 <p>那么，以太网交换机又是如何实现的呢？</p>
 <p>我们将这些问题，全部划归到<strong>数据链路层</strong></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501145059.png" alt="图2.5 总结"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501145059.png" alt="图2.5 总结"></p>
 <p>到这里，大家可能会发现，只要解决了物理层和数据链路层各自所面临的问题，我们就可以实现分组在一个网络上传输了</p>
 <p>没错，确实是这样</p>
 <h3 id="多网络多路由器"><a href="#多网络多路由器" class="headerlink" title="多网络多路由器"></a>多网络多路由器</h3><p>但是，我们每天都会使用的因特网，是由非常多的网络和路由器互连起来的，仅解决物理层和数据链路层的问题，还是不能正常工作</p>
 <p>我们来看这个例子，如下图——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501145519.png" alt="图3.1 多网络多路由器"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501145519.png" alt="图3.1 多网络多路由器"></p>
 <p>这是一个由3个路由器，4个网络互连起来的小型互连网，我们可以把它看作是因特网中很小的一部分</p>
 <p>在之前的例子中，仅有一个网络，我们不需要对网络进行标识</p>
 <p>而在本例中，有多个网络，很显然，我们面临着如何标识各网络以及网络中各主机的<strong>问题</strong>，换句话说，也就是网络和主机共同编址的问题</p>
@@ -208,21 +208,21 @@
 <li>如何标识各网络以及网络中的各主机（网络和主机共同编址的问题，例如IP地址）</li>
 </ul>
 <p>相信大家一定听过IP地址，例如，下图是网络N1中各设备的IP地址——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501145720.png" alt="图3.2 网络N1中各设备的IP地址"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501145720.png" alt="图3.2 网络N1中各设备的IP地址"></p>
 <p>该类IP地址的前三个十进制数用来标识网络，第四个十进制数用来标识主机</p>
 <p>在本例中，网络N1的网络号为192.168.1，该网络上的笔记本电脑、服务器以及路由器接口的IP地址的前三个数应该都是192.168.1，因为它们都在网络N1上，而第四个十进制数分别为1，2，254，各不相同，用来标识它们自己</p>
 <p>同理，下图是网络N2上各设备的IP地址——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501150243.png" alt="图3.3 网络N2中各设备的IP地址"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501150243.png" alt="图3.3 网络N2中各设备的IP地址"></p>
 <p>我们再来看<strong>另一个问题</strong>，源主机与目的主机之间的传输路径往往不止一条，分组从源主机到目的主机可走不同的路径，这样就引出了路由器如何转发分组的问题，以及如何进行路由选择的问题</p>
 <ul>
 <li>路由器如何转发分组，如何进行路由选择</li>
 </ul>
 <p>我们将这些问题全部划归到<strong>网络层</strong></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501150755.png" alt="图3.4 总结"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501150755.png" alt="图3.4 总结"></p>
 <p>至此，如果我们解决了物理层、数据链路层以及网络层各自的问题，则可以实现分组在网络间传输的问题</p>
 <p>但是，对于计算机网络应用而言，这仍然不够</p>
 <p>例如下图——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501151608.png" alt="图3.5 运输层的问题"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501151608.png" alt="图3.5 运输层的问题"></p>
 <p>假设右上角主机中运行着两个与网络通信相关的应用进程，一个是浏览器进程，另一个是QQ进程</p>
 <p>左下角服务器中运行着与网络通信相关的服务器进程</p>
 <p>某个时刻，主机收到了来自服务器的分组</p>
@@ -245,10 +245,10 @@
 <li>支持文件传送的FTP协议等等</li>
 </ul>
 <p>我们将这些问题全部划归到<strong>应用层</strong></p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501152101.png" alt="图3.6 应用层的问题"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501152101.png" alt="图3.6 应用层的问题"></p>
 <p>至此，我们将实现计算机网络所需要解决的各种主要问题，分别划归到了物理层、数据链路层、网络层、运输层和应用层</p>
 <p>进而构成了五层协议体系的原理体系结构，如下图所示——</p>
-<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501152711.png" alt="图3.7 五层协议体系的原理体系结构"></p>
+<p><img src= "/imges/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/SE-Sun/CloudIMG/image/20210501152711.png" alt="图3.7 五层协议体系的原理体系结构"></p>
 <p>大家思考一个问题，假设你是一名程序员，要编程解决实现计算机网络所面临的所有软件问题</p>
 <p>那么，你是愿意将这些问题全部放在一个模块中编程实现呢，还是愿意将它们划分到不同的模块中，逐模块编程实现？</p>
 <p>相信你一定会选择后者</p>
